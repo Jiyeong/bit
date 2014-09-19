@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML TEXT Basic Page</title>
+</head>
+<body>
+    <food>Custom food Tag1</food>
+    <food>Custom food Tag2</food>
+    <food>Custom food Tag3</food>
+    <food>Custom food Tag4</food>
+    <food>Custom food Tag5</food>
+    <rice>Custom rice Tag</rice>
+    <!-- 개발자가 임의로 만든 태그
+    왜? 자바스크립트에서 사용하기 위해서 
+    태그 네임으로 추출가능 
+    문서 작성만이 아니라 어플리케이션 유아이를 만들기 때문에
+    필요하다. 무언가 꼭 의미 부여할 때 사용.
+    라벨이 붙은 값을 가져오거나 수정할 수 있다. 
+    아이디는 중복되서는 안됩니다.문서 내에서 유일해야 한다.
+    태그는 여러개 넣거나 중복 가능-->
+<script>
+var e1 = document.getElementsByTagName("food")[2];
+//0번째꺼 꺼냄
+alert(e1.innerHTML);
+//food에 있는 메시지는 innerHTML이라는 이름의 장소에 들어간다.
+console.log(e1);//콘솔창에 e1을 찍어라
+//이게 돔 api 사용
+</script>
+</body>
+</html>

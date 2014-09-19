@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <img src="ipad.jpg" alt="아이패드" width="300" />
+    <!-- 위의 내용 이해 안됨.-->
+    <img src="Nothing" alt="그림이 존재하지 않습니다." width="300" />
+    <br />
+    <img src="http://placehold.it/300x200" alt="size300x200" />
+    <img src="http://placehold.it/200x150" alt="size200x150"/>
+    <img src="http://placehold.it/100x100" alt="size100x100"/>
+       
+<!-- 오디오 버튼 기능 체크 -->       
+<audio src="Kalimba.mp3" controls="controls" autoplay="autoplay"></audio>
+<audio src="Kalimba.mp3" controls autoplay></audio>
+<!-- 위 두 개의 차이점 확인 할 것-->
+
+<!-- 아래의 것 화면 출력 됨 -->
+    <audio controls="controls">
+        <source src="Kalimba.mp3" type="audio/mp3" />
+        <source src="Kalimba.ogg" type="audio/ogg" />
+    </audio>
+    
+<!-- video play full screen set --> 
+    <video controls="controls">
+        <source src="Wildlife.mp4" type="video/mp4" />
+        <source src="Wildlife.webm" type="video/webm" />
+    </video>
+    
+<!-- video play size 640x360 screen set -->           
+    <video poster="http://placehold.it/640x360" width="640" height="360" controls="controls">
+        <source src="Wildlife.mp4" type="video/mp4" />
+        <source src="Wildlife.webm" type="video/webm" />
+    </video>
+    
+<!-- display and operate after head & body full setting
+<head>
+    <title>Video.js Basic</title>
+    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+</head>
+
+전체화면 보기 없음. 슬라이드 진행 표시 동그랗게 표시됨.
+<body>
+    <video controls="controls" width="640" height="360"
+           class="video-js vjs-default-skin" data-setup="{}">
+        <source src="Wildlife.mp4" type="video/mp4" />
+        <source src="Wildlife.webm" type="video/webm" />
+    </video>
+전체화면 보기, 슬라이드 진행 표시 없음     
+<body>
+    <video width="640" height="360" controls="controls">
+        <source src="Wildlife.mp4" type="video/mp4" />
+        <source src="Wildlife.webm" type="video/webm" />
+        <track kind="subtitles" src="track.srt" srclang="ko" label="Korean" />
+        <track kind="subtitles" src="track.srt" srclang="en" label="English" />
+        <track kind="subtitles" src="track.srt" srclang="jp" label="Japanese" />
+        <track kind="subtitles" src="track.srt" srclang="ch" label="Chinese" />
+    </video>
+</body>    
+-->        
+</body>
+</html>

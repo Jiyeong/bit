@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 Basic</title>
+</head>
+<body>
+    <a href="#alpha">Move to Alpha</a>
+    <a href="#beta">Move to Beta</a>
+    <a href="#gamma">Move to Gamma</a>
+    <hr />
+    <h1 id="alpha">Alpha</h1>
+    <!-- id 태그 사용하지 않으면 의미 없음. 자바스크립트를 사용하기 위 id 사용-->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h1 id="beta">Beta</h1>
+    <p>Duis nec risus a ante pellentesque rhoncus at et leo.</p>
+    <h1 id="gamma">Gamma</h1>
+    <p>Nullam porta, felis sit amet porttitor vestibulum.</p>
+    
+<script>
+var v1 = document.getElementById("beta");//검은글씨 돔api
+v1.innerHTML = "오호라.";//가지고 있는 문자열 변경 
+
+// v1이 가리키는 엘리먼트를 사용자가 마우스로 건드리면 
+//블록 안의 명령어를 수행한다. 라인 전체 적용됨.
+v1.onclick = function(){
+	alert("누르지마..우이씨이이~");
+};
+</script>
+<!-- 위의 스크립트가 자바 스크립트 언어이다. 위의 것 태그 조작. -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

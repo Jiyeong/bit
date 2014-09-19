@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 조건문 2 </title>
+</head>
+
+<body>
+
+<script>
+"use strict";
+
+// switch 문
+var level = 3;
+
+switch(level){
+case 0:
+	console.log('손님');
+	break;
+case 1:
+	console.log('일반');
+	break;
+case 2:
+	console.log('관리자');
+	break;
+default:
+	console.log('기타');
+}
+
+var auth = 3; 
+switch (auth) {
+	case 3:
+		console.log('삭제가능');
+	case 2:
+		console.log('변경가능');
+  case 1:
+	  console.log('작성가능');
+  case 0:
+	  console.log('조회가능');
+}
+//break를 안넣으면 무조건 다 나온다.
+
+// authorization (권한) : 권한 등급 <auth>
+// authentication (인증) : 사용자 존재 유무(login) <auth>
+
+
+/*
+* 조건 연산자
+  (조건) ? 문장1 : 문장2;
+  : 조건이 참이면 문장1을 수행. 거짓이면 문장2를 수행.
+*/
+var a = 10;
+var b = 20;
+var max = 0;
+
+/* if (a > b) {
+	max = a;
+} else {
+	max = b;
+} */
+max = (a > b) ? a : b;
+console.log(max);
+
+
+a = 25;
+b = 18;
+// &&, ||를 활용한 조건문
+(a > b) && (max = a); // 조건이 참일 때 && 뒤를 실행, 거짓이면 뒤를 실행 안함.
+(a > b) || (max = b); // 조건이 참일 때 || 뒤를 실행 안함, 거짓이면 뒤를 실행.
+console.log(max);
+
+	
+</script>
+
+</body>
+</html>
+
+

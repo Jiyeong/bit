@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html><!-- html은 세로 스크롤은 있어도 가로 스크롤 안만듬 -->
+<head>
+    <title>HTML5 Basic</title>
+<style>
+div{
+  /* border: 1px solid red; */
+  
+  /* padding: 10px 10px 10px 10px; */ /*top right bottom left 시계방향 순서*/
+  /* padding: 10px 10px; */ /* top/bottom, right/left */
+  padding: 10px; /* all */
+  /* padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+   */
+}
+#header{
+  background-color: silver;
+}
+#sidebar{
+  background-color: navy;
+  color: white;
+  width: 160px;  
+  float: left;
+} 
+
+#content{
+  background-color: #fafad2;
+  margin-left: 180px;
+}
+#footer{
+ background-color: #e0ffff;
+}
+a:link{/*a 태그의 링크 상태*/
+  color: white;
+}
+a:hover{
+  backgront-color: white;
+  color: navy;
+  font-weight: bold;
+}
+
+#popup{
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+</style>    
+</head>
+<body>
+    <div id="header">
+        <h1>HTML5 Header</h1>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li><a href="#">Menu - 1</a></li>
+            <li><a href="#">Menu - 2</a></li>
+            <li><a href="#">Menu - 3</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div>
+            <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+    <div id="footer">
+        <span>서울특별시 강서구 내발산동</span>
+    </div>
+    <div id="popup">
+      <img src="jjang.jpg"/>
+      <button id="close">x</button>
+    </div>
+    
+<script>
+var e1 = document.getElementById("close");
+e1.onclick = function(){
+	var popup = document.getElementById("popup");
+	popup.style.display = 'none';
+};
+</script>    
+</body>
+</html>
