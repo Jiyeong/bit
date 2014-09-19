@@ -2,23 +2,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>논리 연산자</title>
-<style>
-input{
-  width: 50px;
-}
-</style>
+<title> 논리 연산자 </title>
+
 </head>
 
 <body>
 
-<!-- 논리 연산자
-! (not) ex) !true = false
-&& (AND; 둘 다 true 일 때만 true) true && true = true
-|| (OR; 둘 중 하나라도 true면 true) true || false = true
+<!-- 
+ * 논리 연산자
+  ! (not) ex) !true = false
+  && (AND; 둘 다 true 일 때만 true) true && true = true
+  || (OR; 둘 중 하나라도 true면 true) true || false = true
 -->
-
-<input id="v1" type="text">
 
 <script>
 "use strict";
@@ -39,6 +34,7 @@ console.log("--------------------------------");
 /* 
 => && 와 ||는 앞의 값에 따라 결과를 예측할 수 있다면 뒤의 문장을 수행 안함.
 => & 와 |는 앞의 값에 상관없이 뒤의 문장 수행
+
 1) &&와 &의 차이점
   && : 앞의 값이 참일 경우에만 뒤의 문장을 수행
   & : 앞의 결과와 상관없이 뒤의 문장을 수행
@@ -47,7 +43,7 @@ console.log("--------------------------------");
   | : 앞의 결과와 상관없이 뒤의 문장 수행
  */
  
- var a = true;
+var a = true;
 var b = false;
 var r = 0;
 
