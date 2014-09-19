@@ -3,8 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
 
+    <!-- 초기화 -->
+    <style>
+        * { margin: 0; padding: 0; }
+        body { font-family: 'Times New Roman', serif; }
+        li { list-style: none; }
+        a { text-decoration: none; }
+        img { border: 0; }
+    </style>
+    <!-- 헤더 -->
+    <style>
+     #main_title {
+  
+        /* 중앙 정렬*/
+        width: 960px; margin: 20px auto;
+
+         /* 절대 좌표 */
+       height: 160px;
+       position: relative;
+      }
+    </style>
+    <!-- 타이틀 -->
+    <style>
+        #title {
+            font-family: 'Henny Penny', cursive; 
+        }
+    </style>
+    <!-- 메뉴(1) -->
+    <style>
+        #main_state > ul { overflow: hidden; } 
+        #main_state > ul > li { float: right; } 
+        #main_state > ul > li > a {
+            display: block;
+            padding: 15px 30px;
+            border: 1px solid skyblue;
+        }
+        #main_state > ul > li > a:hover {
+            background: black;
+            color: white;
+        }
+        #main_state > ul > li:first-child > a { border-radius: 5px 5px 5px 5px; }
+        #main_state > ul > li:last-child > a  { border-radius: 5px 5px 5px 5px; }
+    </style>
+    <!-- 메뉴(2) -->
+    <style>
+        #main_reset > ul { overflow: hidden; }
+        #main_reset > ul > li { float: right; }
+        #main_reset > ul > li > a {
+            display: block;
+            padding: 15px 30px;
+            border: 1px solid skyblue;
+        }
+        #main_reset > ul > li > a:hover {
+            background: black;
+            color: white;
+        }
+        #main_reset > ul > li:first-child > a { border-radius: 5px 5px 5px 5px; }
+        #main_reset > ul > li:last-child > a  { border-radius: 5px 5px 5px 5px; }
+    </style>
+</head>
+
+<body>
+  <header id = "main_title">
+    <hgroup id="title">
+    <h1><b>2048</b></h1>
+    <p><b>Play 2048 Game Online</b></p>
+    <p>Join the numbers and get to the 2048 tile!</p>
+  </hgroup>
+  </header>
+  <nav id = "main_state">
+    <ul>
+        <li><a href="#">Score</a></li>
+        <li><a href="#">Best</a></li>
+    </ul>
+  </nav>
+  <nav id = "main_reset">
+    <ul>
+        <li><a href="#">Reset</a>
+    </ul>
+  
+  </nav>
+
+
+<script>
+
+</script>
 </body>
 </html>
