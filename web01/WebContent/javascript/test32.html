@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 클로저(Closure) 3 </title>
+</head>
+
+<body>
+
+<script>
+"use strict";
+
+var score = [100, 90, 80, 70, 80];
+
+// 문제 : 5개 과목의 성적 합계를 구하시오!
+// 클로저 사용 전
+var result = 0;
+for(var i in score){
+	result += score[i];
+}
+
+console.log("합계 = ", result);
+
+// 클로저 사용 후
+// 1) each 함수 선언 
+function each(arr, func) {
+	for(var i in arr) {
+		func(i, arr[i]);
+	}
+}
+
+// 2) each 함수를 사용하여 배열의 합계를 출력하시오!
+var result2 = 0;
+each(score, function(index, value){
+	result2 += value;
+});
+console.log("result2 = ", result2);
+
+// 2) each 함수를 사용하여 배열의 평균을 출력하시오!
+/* 
+each(score, /function(value){
+  result2 += value;
+}//);   //~// : Closure
+console
+ */
+ console.log("average = ", result2/i);
+
+</script>
+</body>
+</html>
+
+

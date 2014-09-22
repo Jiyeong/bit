@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script>
+"use strict";
+
+var a = function(){
+	console.log("It's 익명함수");
+}
+
+a();
+</script>
+<script>
+b();
+
+var b = function(){
+	  console.log("It's 익명함수");
+	  console.log("만들기전 호출 불가. 순서대로 실행");
+	}
+	
+b();
+
+function para(c, d) {
+	
+}
+/* 불가
+function para(var c, var d){ }
+*/
+</script>
+</body>
+</html>
