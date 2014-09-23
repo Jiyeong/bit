@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> create() </title>
+</head>
+
+<body>
+
+<script>
+"use strict";
+
+// Object.creat()를 사용하여 객체 생성 // factory method function
+var obj1 = Object.create({}, {
+	name: {value:'홍길동', writable: true, enumerable: true},
+	kor: {value:100, writable: true, enumerable: true},
+	eng: {value:100, writable: true, enumerable: true},
+	math: {value:100, writable: true, enumerable: true}
+});
+
+console.log(obj1.name);
+console.log(obj1.kor);
+console.log(obj1.eng);
+console.log(obj1.math);
+
+obj1.eng = 90;   
+obj1.math = 90;  
+
+console.log(obj1.name);
+console.log(obj1.kor);
+console.log(obj1.eng);
+console.log(obj1.math);
+
+console.log("--------------------");
+for (var key in obj1) { 
+  console.log(key);
+}
+
+// 이런 것이 있다는 것만 알아둘 것. 라이브러리 만드는 사람들이 주로 사용.
+
+</script>
+</body>
+</html>
+
+

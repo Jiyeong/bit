@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 객체에서 함수의 공유 : Prototype </title>
+</head>
+
+<body>
+
+<script>
+"use strict";
+
+// 같은 생성자 함수로 만든 객체들이 함수를 공유하는 방법.
+// => 생성자함수.prototype 객체에 저장한다. 
+
+function Calculator(init) {
+	if (init != undefined) { // 값이 넘어 왔다면
+		this.result = init;
+	} else {
+		this.result = 0;
+	}
+}
+
+// 객체들이 사용할 함수를 공용 장소(prototype)에 저장한다.
+// 주목! 함수도 객체다!
+Calculator.prototype.plus = function(value) {this.result += value;};
+Calculator.prototype.minus = function(value) {this.result -= value;};
+Calculator.prototype.multiple = function(value) {this.result *= value;};
+Calculator.prototype.divide = function(value) {this.result /= value;};
+
+
+// // 이 둘은 전혀 다른 객체, 전혀 다른 계산기. 
+// // 비효율적 왜? 같은 함수가 중복되어 사용된다. 이로 인해 메모리 낭비
+var calc1 = new Calculator();
+var calc2 = new Calculator(10);
+
+// 0 + 7 - 3 * 8 = ?
+// 10 * 3 - 7 / 2 = ? 
+		
+// calc1에 저장된 plus()를 찾는다.
+// 있다 -> 호출
+// 없다 -> 생성자 함수의 prototype에서 찾는다.
+calc1.plus(7);
+calc2.multiple(3);
+
+calc1.minus(3);
+calc2.minus(7);
+
+calc1.multiple(8);
+calc2.divide(2);
+
+console.log("calc1.result = ", calc1.result);
+console.log("calc2.result = ", calc2.result);
+
+
+
+</script>
+</body>
+</html>
+
+

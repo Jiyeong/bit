@@ -8,28 +8,23 @@
 <script>
 "use strict";
 
-var a = function(){
-	console.log("It's 익명함수");
-}
-
-a();
-</script>
-<script>
-b();
-
-var b = function(){
-	  console.log("It's 익명함수");
-	  console.log("만들기전 호출 불가. 순서대로 실행");
+function money(type){
+	if (type == "데이트"){ return function(time) {return time * 10000};
+	}
+	else if (type == "회식") { return function(time) {return time * 5000};
+	}
+	else (type =="약속") { return function(time) {return time * 3000};
 	}
 	
-b();
-
-function para(c, d) {
-	
 }
-/* 불가
-function para(var c, var d){ }
-*/
+var func1 = money("데이트");
+var func2 = money("회식");
+var func3 = money("약속");
+	
+	console.log("비용=", func1(5));
+	console.log("비용=", func2(3));
+	console.log("비용=", func3(2));
+	
 </script>
 </body>
 </html>
