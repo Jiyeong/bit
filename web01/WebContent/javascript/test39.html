@@ -23,17 +23,18 @@ var student2 = {"name":"임꺽정", "kor":90, "eng":80, "math":70};
 var student3 = {"name":"장보고", "kor":80, "eng":70, "math":60};
 
 // 팩토리 함수 사용 방식
-function makeStudent(v1, v2, v3, v4) {
+ function makeStudent(v1, v2, v3, v4) {
 	var obj = { 
 			"name":v1, "kor":v2, "eng":v3, "math":v4
 	};
 			return obj;
-}
+} 
+
 
 // 생성자 함수 사용 방식
 // 생성자 함수의 호출 전제 조건 : 반드시 new 명령을 실행한 후 호출한다.
 function Student(v1, v2, v3, v4) {
-	// this라는 내부 변수에는 new 명령으로 만든 객체(의 주소,reference)가 들어있다.
+	// this라는 내부 변수에는 new   명령으로 만든 객체(의 주소,reference)가 들어있다.
 	this.name = v1;
 	this.kor = v2;
 	this.eng = v3;
