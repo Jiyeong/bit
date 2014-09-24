@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Array() </title>
+</head>
+
+<body>
+
+
+<script>
+"use strict";
+
+//console.log(Array.constructor);
+//console.log(Array.constructor.constructor);
+//Array.constructor;Function // => function.constructor
+//Array.constructor.constructor = function.constructor
+
+var arr1 = [100, 200, 300];
+var arr2 = new Array(); // []
+var arr3 = new Array(100, 200, 300);
+
+// 생성하자마자 호출하는게 원칙.(초기화함수)
+
+console.log(arr1);
+console.log(arr2);
+console.log(arr3);
+
+// arr1 = arr3 그러면 arr1사용
+
+console.log(arr1.constructor);
+console.log(arr2.constructor);
+console.log(arr3.constructor);
+
+console.log(arr1.length);
+
+// concat() : 기존 배열에 파라미터들을 합친다. 원본을 변경하지 않는다.
+console.log(arr1.concat(400, 500, 600));
+console.log(arr1);
+//concat ; (배열을)연결 합침.
+
+// join() : 배열에 들어있는 값을 문자열로 만들어 리턴한다.
+console.log(arr1.join());
+console.log(typeof arr1.join()); //string
+
+// pop() : 마지막 인덱스의 값을 꺼낸다. (배열에서 제거한다.)
+console.log("--------------------");
+console.log(arr1.pop());
+console.log(arr1.pop());
+console.log(arr1);
+arr1.push(201);
+arr1.push(301);
+console.log(arr1);
+// 배열을 스택처럼 사용할 수 있다. 
+
+// resverse() : 배열의 순서를 뒤집는다. 원본 변경.
+console.log("--------------------");
+console.log(arr1.reverse());
+console.log(arr1);
+
+// slice(시작, 끝) : 시작 인덱스부터 끝 인덱스 전까지 항목 추출. (삭제안함)
+console.log("--------------------");
+arr1.push(1, 2, 3, 4, 5, 6);
+console.log(arr1);
+console.log(arr1.slice(2, 4));	
+console.log(arr1);
+
+// splice(시작, 개수) : 시작 인덱스부터 개수만큼 잘라서 리턴. (삭제함)
+console.log(arr1.splice(2,4));
+console.log(arr1);
+
+// sort() : 정렬
+console.log(arr1.sort()); // 항목을 문자열로 취급하여 정렬.
+/* 
+function mySort(v1, v2) {
+	if (v1 < v2) return -1; // 음수 리턴
+	else if (v1 == v2) return 0; // 0 리턴 ;현상태 유지
+	else return 1 // 양수 리턴
+}	
+arr1.sort(mySort);
+console.log(arr1.sort(mySort));	
+// 글로벌 함수; 여러번 쓰겠다. 하지만 여러번 쓸 것이 아니므로 익명함수로 사용할 것.
+*/	
+arr1.sort(function(p1, p2){ // 파라미터 반드시 선언.//이게 callback함수
+	 if (p1 < p2) return -1; 
+	  else if (p1 == p2) return 0;
+	  else return 1;
+})
+console.log(arr1);
+//console.log(arr1.sort(function(p1, p2){}));
+
+// forEach(콜백함수) : 배열을 반복하면서 콜백함수를 호출한다. // 배열 개수만큼 호출
+// 콜백함수(값, 인덱스, 배열)
+console.log("--------------------");
+arr1.forEach(function(value){
+	//console.log(arguments[0], arguments[1], arguments[2]);
+	  console.log(value);
+});
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

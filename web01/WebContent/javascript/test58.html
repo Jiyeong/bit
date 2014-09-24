@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 처리 : KeyEvent </title>
+</head>
+<input id="input1" type="text"><br>
+<input id="input2" type="text"><br>
+
+<body>
+<script>
+"use strict";
+
+
+// change 이벤트 : 포커스를 잃었을 때, 기존 값과 다르면 이벤트 발생.
+document.getElementById('input1').onchange = function(event) {
+	console.log(event.constructor);
+};
+
+
+// onkeyup 도 가능.
+document.getElementById('input1').onkeypress = function(event){
+	console.log(event.constructor);
+	console.log(event.key);// DOM Level 3
+	console.log(event.code);// DOM Level 3
+	console.log(event.char);// only IE
+	console.log(event.charcode);// derescated (앞으로 5-6년 사용 가능)
+	console.log(event.keycode);//derescated
+	console.log(event.which);//derescated
+	 
+	if(event.keyCode == 13){
+		// 포커스를 input2로 옮긴다.
+		// this => 이벤트가 발생된 객체. input1
+		//this.blur();//이벤트를 잃어라!  
+		// 브라우저야, input2에 태그 포커스를 줘라. 직접 의도.
+		document.getElementById('input2').focus();
+		
+		// 이벤트 발생시 브라우저에게 시키는거. 간접(이벤트 통한) 의도.
+	  //document.getElementById('input2').onfocus = function(event){...};
+
+	 }
+};
+
+
+
+	
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
