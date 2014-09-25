@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 리스너 등록 : addEventListener()/removeEventListener() </title>
+<style>
+div {
+  border: 1px solid red;
+  margin: 10px;
+}
+p {
+  border: 1px dashed blue;
+  margin: 10px;
+}
+span {
+  border: 2px solid black;
+}
+</style>
+
+</head>
+
+<body>
+<div id="d1">d1
+  <div id="d11">d11<p id="p1">비트<span id="s1">강남</span>교육센터</p></div>
+  <div id="d12">d12<p id="p2">비트<span id="s2">종로</span>교육센터</p></div> 
+</div>
+<div id="d2">d2
+  <div id="d21">d21<p id="p3">비트<span id="s3">대전</span>교육센터</p></div>
+  <div id="d22">d22<p id="p4">비트<span id="s4">부산</span>교육센터</p></div> 
+</div>
+
+<script>
+"use strict";
+
+/* var s1 = "okok"; */
+
+// stopPropagation() : 이벤트의 버블링 중단
+// stopImmediatePropagaion() : ~ addeventlistener
+document.getElementById('d1').onclick = function(event) {
+	console.log('d1...');
+}
+
+document.getElementById('d11').onclick = function(event) {
+	  console.log('d11...');
+	}
+	
+document.getElementById('d12').onclick = function(event) {
+	  console.log('d12...');
+	}
+
+document.getElementById('p1').onclick = function(event) {
+	  console.log('ppppp1...');
+	}
+	
+document.getElementById('p2').onclick = function(event) {
+	  console.log('ppppp2...');
+	}	
+	
+var e1 = document.getElementById('s1');
+// 리스너를 등록한 순서대로 호출한다.
+e1.addEventListener('click', function(event) {
+    console.log('(1) => s111111...');
+  });
+  
+e1.addEventListener('click', function(event) { // 할당, 대체
+    console.log('(2) => s111111...');
+    //event.stopPropagation(); // 부모로 버블링하지 말라!
+    event.stopImmediatePropagation(); // 즉시 이벤트 전달을 멈춰라!
+  });
+  
+e1.addEventListener('click', function(event) {
+    console.log('(3) => s111111...');
+  });
+  
+  
+if (e1.attachEvent) { 
+	  // <= IE8
+  e1.attachEvent('onclick', function(){
+	  	var event = window.event;
+	    });
+}
+
+
+/* 
+
+e1.onclick = function(event) { 
+	// window.s1 태그가 아이디가 부여되어 있으면 가능하다. (글로벌 변수, 객체)
+	// But 이는 위험한 코드! 아이디에 값이 덮어씌워질 위험성 있음.
+	// s1이라는 문자열에 (엘리먼트 아님) 클릭 부여.
+	// 이렇게 동작해도 쓰지말라. 유지보수 위험.
+    console.log('s111111...');
+    event.stopPropagation(); // 부모로 버블하지 말라!
+  }
+ */
+
+
+document.getElementById('s2').onclick = function(event) {
+    console.log('s222222...');
+  } 
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
