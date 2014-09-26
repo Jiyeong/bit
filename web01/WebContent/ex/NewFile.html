@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form th {
+    tesx-align:right;
+  }
+</style>
+</head>
+<body>
+<h1>title</h1>
+<table border='1'>
+<tr>
+  <th>num</th>
+  <th>title</th>
+  <th>content</th>
+  <th>writer</th>
+  <th>date</th>
+  <th>count</th>
+</tr>
+<tr>
+  <td>3</td>
+  <td>ttt</td>
+  <td>ttt</td>
+  <td>aaa</td>
+  <td>2014-01-01</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>ttt</td>
+  <td>ttt</td>
+  <td>aaa</td>
+  <td>2014-01-01</td>
+  <td>0</td>
+</tr>
+<tr>
+  <td>1</td>
+  <td>ttt</td>
+  <td>ttt</td>
+  <td>aaa</td>
+  <td>2014-01-01</td>
+  <td>0</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>subtitle</h2>
+<form>
+<table>
+<tr>
+  <th>title</th>
+  <td><input id='title'type='text' ></td>
+</tr>
+<tr>
+  <th>content</th>
+  <td><textarea id='content'></textarea></td>
+</tr>
+<tr>
+  <th>writer</th>
+  <td><input id='writer'type='text' ></td>
+</tr>
+<tr>
+  <th>password</th>
+  <td><input id='password'type='password' ></td>
+</tr>
+</table>
+
+<button id='btnAdd' type='button'>Add</button>
+<button id='btnCnacel' type='reset'>Cancel</button> 
+</form>
+<script>
+
+function Board(title, contnet, writer, password) {
+	this.title = title;
+	this.contnet = contnet;
+	this.writer = writer;
+	this.password = password;
+	this.date = new Date();
+	this.count = 0;
+}
+
+function resetForm() {
+	var event = new MouseEvent('click',{
+	'view':window,
+	'bobble':true,
+	'cancelable':true
+	};)
+	document.getElementById('btnCancel').dispatchEvent(event);
+	
+	}
+
+document.getElementById('btnAdd').onclick = function(event) {
+	var board = new Board(
+			document.getElementById('title').value,
+			document.getElementById('content').value,
+			document.getElementById('writer').value,
+			document.getElementById('password').value,
+			);
+	
+	boardList.push(board);
+	
+	resetForm();
+	
+	outputBoardList();
+	
+}
+
+function outputBoardList(){
+	console.log('-----------------');
+	for (var i in boardList){
+		console.log(boardList[i].title,
+				boardList[i].content,
+				boardList[i].writer,
+				boardList[i].password,
+				boardList[i].date,
+				boardList[i].count);
+		
+	}
+}
+
+
+
+
+</script>
+
+</body>
+</html>

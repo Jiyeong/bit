@@ -14,34 +14,13 @@ form th {
 <!-- 게시판 목록 -->
 
 <h1>Board List 게시판 목록</h1>
-<table border= 1>
+<table id='boardTable' border= 1>
 <tr>
-  <th>No</th>
-  <th>Title</th>
-  <th>Write</th>
-  <th>Date</th>
-  <th>Count</th>
-</tr>
-<tr>
-  <td>3</td>
-  <td>aaaaaaa</td>
-  <td>hongkildong</td>
-  <td>2014-1-1</td>
-  <td>6</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>aaaaaaa</td>
-  <td>baboo</td>
-  <td>2014-1-1</td>
-  <td>5</td>
-</tr>
-<tr>
-  <td>1</td>
-  <td>aaaaaaa</td>
-  <td>melong</td>
-  <td>2014-1-1</td>
-  <td>0</td>
+  <th> No </th>
+  <th> Title </th>
+  <th> Write </th>
+  <th> Date </th>
+  <th> Count </th>
 </tr>
 </table>
 
@@ -50,6 +29,10 @@ form th {
 <h2 id='SubTitle'>Board Detail 게시물 상세정보</h2>
 <form>
 <table>
+<tr class="detail">
+  <th>No 번호</th> 
+  <td><input id='no' type='text' ></td>
+</tr>
 <tr>
   <th>Title 제목</th> 
   <td><input id='title' type='text' ></td>
@@ -62,99 +45,27 @@ form th {
   <th>Writer 작성자</th> 
   <td><input id='writer' type='text'></td>
 </tr>
-<tr>  
+<tr class="create">  
   <th>Password 암호</th>
   <td><input id='password' type='password'></td>
 </tr>
+<tr class="detail">  
+  <th>Day 등록일</th>
+  <td><input id='date' type='text'></td>
+</tr>
 </table>
 
-<button id='btnAdd' type='button'>추가</button>
+<button id='btnAdd' type='button' class='create'>추가</button>
+<button id='btnChange' type='button' class='detail'>변경</button>
+<button id='btnDelete' type='button' class='detail'>삭제</button>
 <button id='btnCancel' type='reset'>취소</button>
 </form>
-<script>
-"use strict";
+<!-- 목표: 자바스크립트와 HTML 소스 분리 -->
+<script src='test69_common.js'></script> 
+<script src='test69_tot.js'></script>
+<!-- 순서 중요 -->
 
-// 게시글을 저장하는 객체 생성자 함수
-function Board(title, content, writer, password) {
-	this.title = title;
-	this.content = content;
-	this.writer = writer;
-	this.password = password;
-	this.date = new Date();
-	this.count = 0;
-}
 
-function resetForm() {
-	  // reset 버튼에게 click 이벤트를 전달
-	  // 1) MouseEvent 객체 생성
-	  var event = new MouseEvent('click',{
-		  'view':window,
-		  'bubble':true,
-		  'cancelable':true
-	  });
-	  // 2) reset 버튼에게 이벤트 전달 
-    document.getElementById('btnCancel').dispatchEvent(event);
-	  /* 
-	  //입력폼 초기화
-    document.getElementById('title').value = '';
-    document.getElementById('content').value = '';
-    document.getElementById('writer').value = '';
-    document.getElementById('password').value = '';
-    document.getElementById('title').focus(); // 초기화 후 포커스 첫칸으로.
-    */
-}
-
-var boardList = [];
-/* ver.1
-document.getElementById('btnAdd').onclick = function(event) {
-	var title = document.getElementById('title').value;
-	var content = document.getElementById('content').value;
-	var writer = document.getElementById('write').value;
-	var password = document.getElementById('password').value;
-
-	//console.log(title, content, writer, password);	
-	boardList.push([title, content, writer, password])
-};
- */
- 
-/*  ver.2
- document.getElementById('btnAdd').onclick = function(event) {
-	 var board = {
-			 'title': document.getElementById('title').value,
-			 'content': document.getElementById('content').value,
-			 'writer': document.getElementById('writer').value,
-			 'password': document.getElementById('password').value
-	 };
-
-	  boardList.push(board);
-	};
- */	
-document.getElementById('btnAdd').onclick = function(event) {
-	   var board = new Board(
-	       document.getElementById('title').value,
-	       document.getElementById('content').value,
-	       document.getElementById('writer').value,
-	       document.getElementById('password').value);
-
-	    boardList.push(board);
-	    
-	    resetForm();
-	    
-	    outputBoardList();
-	  };
-	
-function outputBoardList() {
-	console.log('--------------------');
-	for(var i in boardList) {
-		console.log(boardList[i].title, 
-				boardList[i].content, 
-				boardList[i].writer, 
-				boardList[i].password, 
-				boardList[i].date, 
-				boardList[i].count);
-	}
-}	
-</script>
 </body>
 </html>
 
