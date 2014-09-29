@@ -3,8 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
+<style>
+form th {text-align:right;
+}
+</style>
+
 </head>
 <body>
+<h1>게시판</h1>
+<table id='boardTbale' border=1> 
+<tr>
+	<th> 번호</th>
+	<th>제목</th>
+	<th>작성자</th>
+	<th>등록일</th>
+	<th>조회수</th>
+</tr>
+</table>
 
+<hr>
+
+<h2>subtitle</h2>
+<form>
+<table>
+<tr class="detail">
+	<th>번호</th>
+	<td><input id='title' type='text'></td>
+</tr>
+<tr>
+	<th>작성자</th>
+	<td><input id='writer' type='text'></td>
+</tr>
+<tr class="create">
+	<th>암호</th>
+	<td><input id='password' type='password'></td>
+</tr>
+<tr class="detail">
+	<th>등록일</th>
+	<td><input id='date' type='text'></td>
+</tr>	
+</table>
+
+<button id='btnAdd' type='button' class='create'>추가</button>
+<button id='btnChange' type='button' class='detail'>변경</button>
+<button id='btnDelete' type='button' class='detail'>삭제</button>
+<button id='btnCancel' type='reset'>취소</button>
+
+</form>
+
+<script crs='test69_common.js'></script>
+<script crs='test69.js'></script>
 </body>
 </html>

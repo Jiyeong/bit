@@ -2,66 +2,112 @@
 
 //= window.bit = function(value){ 아래와 같은 말.
 function bit(value) {
-	var element = null; //원래 생닭
+	var elements = null; //원래 생닭
 	if (value instanceof Element){ //엘리먼트에 대해 초기화된 것이냐?
-		element = value; //엘리먼트면?
-	}else if (value.charAt(0) == '#') { // 아이디일 경우,
-		element = document.getElementById(value.substring(1));
+		elements = [value]; //엘리먼트면?
+	/*} else if (value.charAt(0) == '#') { // 아이디일 경우,
+		element = document.getElementById(value.substring(1));*/
 	} else if (value.charAt(0) == '<') { // 태그일 경우,
-	  element =  document.createElement(value.replace(/<|>/g, ''));	
+	  elements =  [document.createElement(value.replace(/<|>/g, ''))];	
+	} else {
+		elements = document.querySelectorAll(value);// 한개의 엘리먼트 아님 /어차피배열
 	}
 
-	element.text = function(value) {
-		this.textContent = value;
+	elements.text = function(value) {
+		for(var i = 0;i < this.length; i++){
+		this[i].textContent = value;
+		}
 		return this;
 	};
 	
-	element.html = function(value) {
-		this.innerHTML = value;
+	elements.html = function(value) {
+		for(var i = 0;i < this.length; i++){
+		this[i].innerHTML = value;
+		}
 		return this;
 	};
 	
-	element.append = function(child) {
-		this.appendChild(child);
+	elements.append = function(child) {
+		for(var i = 0;i < this.length; i++){
+		if(child instanceof Element){
+		this[i].appendChild(child);
+		} else {
+			for(var x = 0; x < child.length; x++){
+				this[i].appendChild(child[x]);
+				}
+			}
+		}
 		return this;
 	};
 	
-	element.appendTo = function(parent) {
-		parent.appendChild(this);
+	elements.appendTo = function(parent) {
+		for(var i = 0;i < this.length; i++){
+		if (parent instanceof Element){
+			parent.appendChild(this[i]);
+		}else {
+			parent[0].appendChild(this[i]);
+			}
+		}
 		return this;
 	};
 	
-	element.attr = function(name, value) {
-		this.setAttribute(name, value);
-		return this;
+	elements.attr = function(name, value) {
+		if(arguments.length == 2){
+			for(var i = 0;i < this.length; i++){
+				this[i].setAttribute(name, value);
+				}
+			return this;
+		} else {
+			return this[0].getAttribute(name);
+		}
 	};
 	
-	element.click = function(listener) {
+	elements.click = function(listener) {
+		for(var i = 0;i < this.length; i++){
 		if(listener){
-		this.onclick = listener;
+		this[i].onclick = listener;
 		} else {
 			var event = new MouseEvent('click', {
 			    'view': window,
 			    'bubbles': true,
 			    'cancelable': true
-			});
-		
-			this.dispatchEvent(event);
+				});
+				this[i].dispatchEvent(event);
+			}
 		}
 		return this;
 	}
 	
-	element.val = function(value){
-		this.value =value;
-		return this;
+	elements.val = function(value){
+		if(arguments.length == 1){
+			for(var i = 0;i < this.length; i++){
+			this[i].value = value;
+			}
+			return this;
+		} else {
+			return this[0].value; //무조건 0번쨰.
+		}
 	};//jquery value=val 유사하게;
 	
-	element.css = function(name, value) {
-		this.style[name] = value;
-		return this;
-	}
+	elements.css = function(name, value) {
+		if(arguments.length == 2){ //vlaue면 빈문자를 false취급하므로 2개 추가해서 하지 않도록 
+			for(var i = 0;i < this.length; i++){
+			this[i].style[name] = value;
+			}
+			return this;
+		} else {
+			return this[0].style[name];
+		}
+	};
 	
-	return element; //가공된 닭
+	elements.remove = function(){
+		for(var i = 0; i < this.length ; i++){
+			this[i].parentElement.removeChild(this[i]);
+		}
+		return this;
+	};
+	
+	return elements; //가공된 닭
 }
 
 
