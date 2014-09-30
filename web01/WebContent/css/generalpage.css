@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+#header {
+	/* border: 1px solid red; */
+	background-image: url(bg1.jpg);
+	/* background-position: 0px, 100px; */
+	background-position: left bottom;
+	height: 100px;
+}
+
+#sidebar {
+	width: 150px;
+	/* border: 1px solid green; */
+ 	background: url(bg2.png) no-repeat bottom right #afeeee;
+ 	float: left;
+ }
+
+#content {
+	line-height: 1.5em;
+	/* border: 1px solid blue; */
+	margin-left: 170px;
+}
+
+#footer {
+	clear:left; /* 왼쪽에 부딪히는 것이 있으면 아래로 이동하라! */
+	/* border: 1px solid black; */
+	text-align: center;
+}
+
+#logo {
+	float: left;
+}
+
+#menubar {
+	/* border: 1px solid red; */
+	width: 400px;
+	float: left;
+	margin-left: 200px;
+}
+
+#user {
+	border:1px solid black;
+	/* background-image: url(user.png); */
+	position:relative;
+	top: -30px;
+	padding: 0px;
+}
+#user > img {
+	border-radius: 7px;
+}
+
+#userName {  /* modify */
+	border: 1px solid red;
+	
+}
