@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>September's Movies</title>
+<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+</head>
+<style>
+
+body {
+	background : #e0ffff;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+ 	font-size: small;
+ 	text-align: center;
+ 	margin: 10px 100px 400px 100px;
+ 	width: 1000px; 
+}
+
+h1 {
+	color: #4169e1;
+	font-size: 3em;
+}
+div {
+  padding: 10px;
+}
+
+div#main {
+  width: 1000px;
+  
+  border-width: 1px;
+  border-color: white;
+  border-style: solid;
+  
+  padding: 10px;
+  margin: 0px auto;
+}
+fieldset {
+      border: 0;
+    }
+label {
+      display: block;
+      margin: 0 0 0 0;
+      font-size: 2em;
+      color: blue;
+    }
+
+select#selectM {
+      width: 300px;
+      background-color: #565CAA;
+      color: whitesmoke;
+      height: 50px;
+      font-size: 30px;
+      text-align: center;
+    }
+    
+button {
+	width: 100px;
+	height: 40px;
+	background-color: rgb(102, 102, 207);
+	font-size: 18px;
+	color: whitesmoke;
+}   
+span {
+	font-size: 17px;
+	background-color: white;
+	color: black;
+	padding: 10px 255px 10px 255px;
+	text-align: center;
+	display: inline-flex;
+	
+}
+
+p {
+	font-size: 20px;
+	text-align: center;
+}
+table {
+	display: inline-table;
+	font-size: 14px;
+	height: 323px;
+	position: relative;
+	border: 5px solid black;
+	width: 450px; 
+
+}
+
+#header {
+	background-color:white;
+}
+#content2 {
+	background-color: white;
+	
+	/* width: 400px; 
+	height: 600px; 
+	margin: 0 auto;
+	position: absolute; 
+	display: block;  */
+	
+}
+
+#left  {
+  width:450px;  
+  float:left; 
+  background-hieght:500px;
+  background-color:orange;  
+}
+#right  {
+	margin-left: 455px;
+	width:500px;
+	background-color:yellow;
+} 
+#footer {
+	background-color:white;
+}
+
+/* 갤러리 스크립트 */
+
+</style>
+
+<link rel="stylesheet" href="./FlexSlider 2_files/flexslider.css" type="text/css" media="screen">
+
+<body>
+  <div id='main'>
+		<div id="header"> 
+		    
+		  <h1 id='title'>2014.September's Movies Information</h1>
+		  <div id='menubar'>
+		 
+		 <form action="#">
+		 
+		    <fieldset>
+		      <label for="mTitle">Select a movie</label>
+		      <button id='before' type='button'>Before</button>
+		      
+		     <select name="movie" id="selectM">
+		      <option selected="selected">Select a movie</option>
+	      
+	          <option value=0>begin again</option>
+		      <option value=1>in to the storm</option>
+		      <option value=2>very good girl</option>
+		      <option value=3>두근 두근 내 인생</option>
+		      <option value=4>해적</option>
+		      <option value=5>타짜 - 신의 손</option>
+		    </select>
+		    
+		    <button id='after' type='button'>Next</button>
+		  </fieldset>
+		 
+		</form>
+		 
+		  </div>
+    
+    </div>   
+    
+   <div class='create' id='content1'>
+	<div id='images'>	
+		<a href="#1" ><input type="image" src="mp1.jpg" value="Click" onclick="count()" id="mp1"></a>
+		<input id ="counting" type="text">
+		<a href="#2" ><input type="image" src="mp2.jpg" value="Click" onclick="count()" id="mp2"></a>
+		<a href="#3" ><input type="image" src="mp3.jpg" value="Click" onclick="count()" id="mp3"></a>
+		<a href="#4" ><input type="image" src="mp4.jpg" value="Click" onclick="count()" id="mp4"></a>
+		<a href="#5" ><input type="image" src="mp5.jpg" value="Click" onclick="count()" id="mp5"></a>
+		<a href="#6" ><input type="image" src="mp6.jpg" value="Click" onclick="count()" id="mp6"></a>
+
+	</div>
+	</div>
+
+    
+    <div class='detail' id='content2'> 
+    <div id='left'>   
+       <section class="slider">
+        <div class="flexslider">
+          
+        <div class="flex-viewport" style="overflow: hidden; position: relative;">
+        <ul class="slides" style="width: 1200%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1414px, 0px, 0px);">
+        	<li class="clone" style="width: 707px; float: left; display: block;">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_caramel.jpg">
+          </li>
+          <li class="" style="width: 707px; float: left; display: block;">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_cheesecake_brownie.jpg">
+          </li>
+          <li style="width: 707px; float: left; display: block;" class="flex-active-slide">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_lemon.jpg">
+          </li>
+          <li style="width: 707px; float: left; display: block;">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_donut.jpg">
+          </li>
+          <li style="width: 707px; float: left; display: block;">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_caramel.jpg">
+          </li>
+          <li class="clone" style="width: 707px; float: left; display: block;">
+              <img src="./FlexSlider 2_files/kitchen_adventurer_cheesecake_brownie.jpg">
+          </li></ul></div>
+          
+          <ol class="flex-control-nav flex-control-paging">
+            <li><a class="">1</a></li>
+            <li><a class="flex-active">2</a></li>
+            <li><a>3</a></li>
+            <li><a>4</a></li>
+          </ol>
+          
+          <ul class="flex-direction-nav">
+          <li><a class="flex-prev" href="http://flexslider.woothemes.com/index.html#">Previous</a></li>
+          <li><a class="flex-next" href="http://flexslider.woothemes.com/index.html#">Next</a></li>
+          </ul>
+          </div>
+          
+      </section>
+      
+    </div>
+            
+ 
+  <div id="right">
+    <p>Movie Information </p>
+    <table id='MovieTable' border=1>
+      <tbody>   
+      </tbody>
+    </table>
+  </div>
+  </div>
+  
+  <div id="footer">
+    <span id='footer'>2014.September's Movies Information</span>
+ </div>
+ </div>
+
+<!-- Counter -->
+<script>
+var i = 0;
+function count() {
+	i += 1;
+	document.getElementById("counting").value = i;
+}
+
+
+</script>
+
+<!-- jQuery -->
+<script src="./FlexSlider 2_files/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')</script>
+
+<!-- FlexSlider -->
+<script defer="" src="./FlexSlider 2_files/jquery.flexslider.js"></script>
+
+<script type="text/javascript">
+ /* $(function(){
+   SyntaxHighlighter.all();
+ });
+ */
+ $(window).load(function(){
+   $('.flexslider').flexslider({
+     animation: "slide",
+     start: function(slider){
+       $('body').removeClass('loading');
+     }
+   });
+ });
+</script>
+<script>
+document.getElementById('mp1').onclick = function(event) {
+	changeState('create');
+}
+document.getElementById('mp2').onclick = function(event) {
+	changeState('create');
+}
+document.getElementById('mp3').onclick = function(event) {
+	changeState('create');
+}
+document.getElementById('mp4').onclick = function(event) {
+	changeState('create');
+}
+document.getElementById('mp5').onclick = function(event) {
+	changeState('create');
+}
+document.getElementById('mp6').onclick = function(event) {
+	changeState('create');
+}
+</script>
+<!-- Optional FlexSlider Additions -->
+<script src="./FlexSlider 2_files/jquery.easing.js"></script>
+<script src="./FlexSlider 2_files/jquery.mousewheel.js"></script>
+<script defer="" src="./FlexSlider 2_files/demo.js"></script>
+  
+<script src="two.js"></script>
+
+
+</body>
+</html>
+

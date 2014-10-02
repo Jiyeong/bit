@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 셀렉터 </title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+/* 1. 태그 이름으로 대상 선택하기 
+	$(CSS 셀렉터 문법) 
+	=> 리턴: jQuery 함수가 만든 배열. 배열 안에 엘리먼트가 들어 있다.
+	=> CSS 셀렉터 문법 : #아이디, 태그명, .클래스명, xxx: 슈도셀렉터 등
+ */
+$(function() {
+	// 태그 이름으로 선택하기.
+	// each(콜백함수) : jQuery의 리턴 객체에 들어있는 엘리먼트 개수 만큼 
+	//					반복하면서 콜백함수를 호출한다.
+	// 콜백함수 문법 : function(인덱스, 오리지널 엘리먼트(생닭)) {}
+	$('h1').each(function(index, element) {
+		//console.log(index, element.innerHTML); // h1 element
+		
+		// 아래 문장은 오류! => 파라미터 element는 jQuery가 만든 객체가 아니라
+		// 오리지널 엘리먼트이기 때문이다. (=> each에 넘어오는건 생닭임.)  
+		//console.log(index, element.html()); // Error 'undefined is not a function'
+		
+		// 오리지널 엘리먼트를 jQuery로 가공한 다음에는 html()을 사용할 수 있다. 
+		console.log(index, $(element).html());
+	});
+});
+
+</script>
+
+</head>
+
+<body>
+
+	<h1>제목 11111</h1>	
+	<P>내용......1</p>
+	<h1>제목 11112</h1>	
+	<P>내용......2</p>
+	<h1>제목 11113</h1>	
+	<P>내용......3</p>
+	<h1>제목 11114</h1>
+	<P>내용......4</p>
+	<h1>제목 11115</h1>
+	<P>내용......5</p>
+	
+</body>
+</html>

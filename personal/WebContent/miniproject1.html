@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>September's Movies</title>
+<link href="mp.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div id='main'>
+<div id='header'>
+
+	<h1 id='title'>2014.September's Movies Information</h1>
+	<div id='menubar'>
+ 
+<form action="#">
+ 
+  <fieldset>
+    <label for="mTitle">Select a movie</label>
+    <button id='before' type='button'>Before</button>
+    <select name="movie" id="selectM">
+      <option selected="selected">Select a movie</option>
+      
+      <option value=0>begin again</option>
+      <option value=1>in to the storm</option>
+      <option value=2>very good girl</option>
+      <option value=3>두근 두근 내 인생</option>
+      <option value=4>해적</option>
+      <option value=5>타짜 - 신의 손</option>
+    </select>
+    <button id='after' type='button'>Next</button>
+  </fieldset>
+ 
+</form>
+ 
+	</div>
+</div>
+
+
+<div class='content' id='content'>
+	<div class='images' id='images'>	
+		<a href="#1" ><input type="image" src="./img2/mp1.jpg" value="Click" onclick="count()" id="mp1"></a>
+		<input id ="counting" type="text">
+		<a href="#2" ><input type="image" src="./img2/mp2.jpg" value="Click" onclick="count()" id="mp2"></a>
+		<a href="#3" ><input type="image" src="./img2/mp3.jpg" value="Click" onclick="count()" id="mp3"></a>
+		<a href="#4" ><input type="image" src="./img2/mp4.jpg" value="Click" onclick="count()" id="mp4"></a>
+		<a href="#5" ><input type="image" src="./img2/mp5.jpg" value="Click" onclick="count()" id="mp5"></a>
+		<a href="#6" ><input type="image" src="./img2/mp6.jpg" value="Click" onclick="count()" id="mp6"></a>
+
+	</div>
+</div>
+
+<div id='footer'>
+	<span id='footer'>2014.September's Movies Information</span>
+</div>
+</div>
+
+<script>
+var i = 0;
+function count() {
+	i += 1;
+	document.getElementById("counting").value = i;
+}
+
+
+</script>
+<!-- <script src="./js/movie_list.js"></script> -->
+
+</body>
+</html>

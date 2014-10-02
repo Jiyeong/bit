@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>load 이벤트</title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+	// DOM 트리가 완성되었을 때 load 이벤트 발생
+	window.onload = function(event) {
+		alert('onlaod'); //출력 3 ; 세 번째로 호출된다.
+	}; // 함수 호출 문장아님. 함수 객체 만들어서 여기에 등록함. 할당문. 호출 노노. 
+	//함수 정의해서 담은거라고!
+
+	alert('111'); //출력 1 ; 첫 번째로 호출된다.
+	$('#btn1').click(function(event) {
+		$('#formDiv').css('display', '');
+	});
+</script>
+
+</head>
+
+<body>
+
+	<button id='btn1'>버튼1</button>
+	<div id='formDiv' style='display: none;'>
+		<form>
+			이름 : <input type='text' name='name'><br> 
+			나이 : <input type='text' name='age'><br>
+		</form>
+	</div>
+
+	<script>
+		alert('222');//출력 2 ; 두 번째로 호출된다.
+	</script>
+
+</body>
+</html>

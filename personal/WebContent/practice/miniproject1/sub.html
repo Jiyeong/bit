@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>September's Movies</title>
+<meta name="viewport"
+	content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+</head>
+<style>
+
+/* * {
+	border: 1px solid red;
+}  */
+body {
+	background: #87ceeb;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-size: small;
+	text-align: center;
+	margin: 10px 100px 400px 100px;
+	width: 1000px;
+}
+
+h1 {
+	color: #4169e1;
+	font-size: 3.5em;
+	font-variant: small-caps;
+	font-weight: bold;
+	
+	
+}
+
+div {
+	padding: 10px;
+	background-color: white;
+}
+
+div#main {
+	width: 1000px;
+	border-width: 1px;
+	border-color: white;
+	border-style: solid;
+	padding: 10px;
+	margin: 0px auto;
+}
+
+fieldset {
+	border: 0;
+}
+
+label {
+	display: block;
+	margin: 0 0 0 0;
+	font-size: 2em;
+	color: blue;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+select#selectM {
+	width: 300px;
+	background-color: #565CAA;
+	color: whitesmoke;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+} 
+
+button {
+	width: 100px;
+	height: 40px;
+	background-color: rgb(102, 102, 207);
+	font-size: 18px;
+	color: whitesmoke;
+}
+
+span {
+	font-size: 17px;
+	background-color: white;
+	color: black;
+	padding: 10px 255px 10px 255px;
+	text-align: center;
+	display: inline-flex;
+}
+
+p {
+	font-size: 30px;
+	text-align: center;
+	font-variant: small-caps;
+	font-weight: bold;
+}
+
+table { 
+	table-layout: auto;
+	display: inline-table;
+	font-size: 14px;
+	height: 323px;
+	width: 450px;
+	border: 2px brown;
+	border-style: dashed;
+	padding: 5px;
+	margin: 40px 0 310px 0;
+}
+
+input {
+	display: inline-flex;
+	width: 250px;
+	height: 350px;
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+input#counting {
+	/* display: inline-flex; */
+	width: 250px;
+	height: 30px;
+	
+}
+
+
+input:hover { 
+	opacity:0.3; 
+	filter:alpha(opacity=30);
+	
+	text-align:justify; 
+	color:#000000; 
+	font-size:20px; 
+	font-weight:700; 
+	font-family:"Times New Roman", Times, serif; 
+} 
+#header {
+	background-color: white;
+}
+
+#content2 {
+	background-color: white;
+
+	/* width: 400px; 
+	height: 600px; 
+	margin: 0 auto;
+	position: absolute; 
+	display: block;  */
+}
+
+#left {
+	width: 450px;
+	float: left;
+	background-color: darksalmon;
+	margin-top: 10px;
+}
+
+#right {
+	margin-left: 470px;
+	margin-top: 10px;
+	width: 490px;
+	background-color: lavender;
+}
+
+#menubar{
+	border: 2px rgb(201, 199, 255);
+	border-bottom-style: double;
+	border-bottom-width: 4px;
+	border-top-style: double;
+	border-top-width: 4px;
+	border-radius: 100px;
+}
+
+#footer {
+
+}
+
+/* 갤러리 스크립트 */
+</style>
+<link rel="stylesheet" href="./FlexSlider 2_files/flexslider.css"
+	type="text/css" media="screen">
+
+<body>
+	<div id='main'>
+		<div id="header">
+
+			<h1 id='title'>2014.September's Movies Information</h1>
+			<div id='menubar'>
+
+				<form action="#">
+
+					<fieldset>
+						<label for="mTitle">Select a movie</label>
+						<button id='before' type='button'>Before</button>
+						
+		<ul id="movie" id="selectM"><li  value=10>Select a movie
+		    <ul>
+		      <li value=0>begin again</li>
+		      <li value=1>in to the storm</li>
+		      <li value=2>very good girl</li>
+		      <li value=3>두근 두근 내 인생</li>
+		      <li value=4>해적</li>
+		      <li value=5>타짜 - 신의 손</li>
+		    </ul>
+		  </li>
+		</ul>
+<!-- 						<select name="movie" id="selectM">
+							<option selected="selected" value=10>Select a movie</option>
+
+							<option value=0>begin again</option>
+							<option value=1>in to the storm</option>
+							<option value=2>very good girl</option>
+							<option value=3>두근 두근 내 인생</option>
+							<option value=4>해적</option>
+							<option value=5>타짜 - 신의 손</option>
+						</select> -->
+
+						<button id='after' type='button'>Next</button>
+					</fieldset>
+
+				</form>
+
+			</div>
+
+		</div>
+
+		<div class='container1' id='content'>
+			<div class='images' id='images'>
+				<input type="image" src="./img2/mp1.jpg" id='mp1'> 
+				<input type="image" src="./img2/mp2.jpg" id='mp2'> 
+				<input type="image" src="./img2/mp3.jpg" id='mp3'> 
+				<input type="image" src="./img2/mp4.jpg" id='mp4'> 
+				<input type="image" src="./img2/mp5.jpg" id='mp5'>
+				<input type="image" src="./img2/mp6.jpg" id='mp6'>
+			</div>
+		</div>
+
+		<div id='content2' class='container2'>
+			<div id='left'>
+				<div class="flexslider">
+					  
+					<ul class="slides" id='slide'>
+						<li><img src="./img2/mp1.jpg" id='img1'></li>        
+						<li><img src="./img2/mp2.jpg" id='img2'></li>        
+						<li><img src="./img2/mp3.jpg" id='img3'></li>        
+						<li><img src="./img2/mp4.jpg" id='img4'></li>     
+					</ul>
+				</div>
+				<ul class="flex-direction-nav">
+					<li><a class="flex-prev"
+						href="http://flexslider.woothemes.com/index.html#">Previous</a></li>
+					<li><a class="flex-next"
+						href="http://flexslider.woothemes.com/index.html#">Next</a></li>
+				</ul>
+			</div>
+
+
+
+		<div id="right">
+			<p>Movie Information</p>
+			<table id='MovieTable' border='2'>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+		</div>
+
+
+	<div id="footer">
+		<span id='footer'>2014.September's Movies Information</span>
+	</div>
+
+</div>
+
+	<!-- jQuery -->
+	<script src="./FlexSlider 2_files/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="js/libs/jquery-1.7.min.js">\x3C/script>')
+	</script>
+
+	<!-- FlexSlider -->
+	<script defer="" src="./FlexSlider 2_files/jquery.flexslider.js"></script>
+
+	<script type="text/javascript">
+		/* $(function(){
+		  SyntaxHighlighter.all();
+		});
+		 */
+		$(window).load(function() {
+			$('.flexslider').flexslider({
+				animation : "slide",
+				start : function(slider) {
+					$('body').removeClass('loading');
+				}
+			});
+		});
+	</script>
+
+	<!-- Optional FlexSlider Additions -->
+	<script src="./FlexSlider 2_files/jquery.easing.js"></script>
+	<script src="./FlexSlider 2_files/jquery.mousewheel.js"></script>
+
+	<script src="./js/movie_list.js"></script>
+</body>
+</html>
