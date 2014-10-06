@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Selector </title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+/* 자식 및 자손 태그 찾기
+   CSS 셀렉터 문법 : 부모 > 자식
+   CSS 셀렉터 문법 : 부모  자손
+ */
+$(function() {
+	// main div의 직계 자식을 찾기
+	//$('#main > h2').css('color','red');  
+	//$('#main > *').css('background-color','gray'); //main 아래의 모든 자식 찾기
+	
+	
+	// main div의 자손 태그 찾기
+	$('#main h2').css('color','red');
+	// $('#main > h2').css('color','red');  // 1) 
+	
+	//$('#d1 > h2').css('color','red');
+	//$('#d2 > h2').css('background-color','lightgray');
+	
+	// "inherited(상속)" ; color는 자식이 해당되면 자손도 해당됨.
+	// color 속성은 자식 태그로 상속된다. 
+	// border 속성은 자식 태그로 상속 되지 않는다.
+	//$('#main').css('color','gray').css('border','1px solid red'); // 2)
+	
+	// border 속성은 상속되지 않기 때문에 일일이 태그를 찾아 지정해야 한다.
+	//$('#d1 > h2').css('border','1px dashed blue')
+	
+	//$('#main > *').css('color','gray'); 
+	});
+
+
+</script>
+
+</head>
+<!-- 1) main(div)의 자식 h2를 찾아서 color red로 -->
+<!-- 2) main(div)의 모든 자식에 대해서 background-color gray로 -->
+<body>
+<div id = "main">
+  <h2>main...h2...1</h2>
+  <h2>main...h2...2</h2>
+  <h2>main...h2...3</h2>
+	<div id='d1'>
+	<h2>제목 11111</h2>	
+	<P>내용......1</p>
+	<h2 class='c1'>제목 11112</h2>	
+	<P>내용......2</p>
+	</div>
+	
+	<div id="d2">
+	<h2 class='c1 c2'>제목 11113</h2>	
+	<P>내용......3</p>
+	<h2 class='c2'>제목 11114</h2>
+	<P>내용......4</p>
+	<h2 class='c1'>제목 11115</h2>
+	<P>내용......5</p>
+	</div>
+  </div>
+</body>
+</html>
+

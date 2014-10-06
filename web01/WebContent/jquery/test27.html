@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 엘리먼트 이동하기 </title>
+
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+
+	$(function() {
+		setInterval(function() {
+			$('img:first').appendTo('body');
+		}, 1000);  //1초 마다
+
+	});
+</script>
+
+</head>
+
+<body>
+	<img src='i1.jpg' width='150'>
+	<img src='i2.jpg' width='150'>
+	<img src='i3.jpg' width='150'>
+	<img src='i4.jpg' width='150'>
+	<img src='i5.jpg' width='150'>
+</body>
+</html>
+
+
+

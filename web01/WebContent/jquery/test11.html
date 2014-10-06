@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Selector </title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+/* 
+   클래스로 묶인 태그 찾기
+   CSS 셀렉터 문법 : .클래스명
+ */
+$(function() {
+	$('.c1').css('color','blue');
+	$('.c2').css('background-color','yellow');
+	$('.c1.c2').css('font-style','italic'); // 공백을 주어서는 안된다!!!
+	});
+
+
+</script>
+
+</head>
+
+<body>
+<!-- 클래스를 사용해서 2,3,5 color blue, 3,4 background-color yellow -->
+	<h2>제목 11111</h2>	
+	<P>내용......1</p>
+	<h2 class='c1'>제목 11112</h2>	
+	<P>내용......2</p>
+	<h2 class='c1 c2'>제목 11113</h2>	
+	<P>내용......3</p>
+	<h2 class='c2'>제목 11114</h2>
+	<P>내용......4</p>
+	<h2 class='c1'>제목 11115</h2>
+	<P>내용......5</p>
+	
+</body>
+</html>
+

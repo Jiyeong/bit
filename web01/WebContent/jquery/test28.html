@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 엘리먼트 복제하기 </title>
+
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+	clone() => 선택된 객체를 복제한다.
+ */
+
+	$(function() {
+		setInterval(function() {
+			$('img:first').clone().appendTo('body');
+		}, 1000);
+	});
+</script>
+
+</head>
+
+<body>
+	<img src='i1.jpg' width='150'>
+	<img src='i2.jpg' width='150'>
+	<img src='i3.jpg' width='150'>
+	<img src='i4.jpg' width='150'>
+	<img src='i5.jpg' width='150'>
+</body>
+</html>
+
+
+

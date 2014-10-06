@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Selector </title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+/* 
+   아이디로 태그 찾기
+   CSS 셀렉터 문법 : #아이디
+   CSS 셀렉터 문법 : 태그명#아이디 <- 선택의 폭을 더 좁힐 수 있다.(공백 없음.)
+   CSS 셀렉터 문법 : 클래스명#아이디
+   (공백 있으면 그 태그명 또는 클래스명의 자손 아이디에 기능을 주는 것이 된다.)
+ */
+$(function() {
+	$('h1#header4').css('background-color','yellow');
+	});
+
+
+</script>
+
+</head>
+
+<body>
+
+	<h2 id='header1'>제목 11111</h2>	
+	<P>내용......1</p>
+	<h2 id='header2'>제목 11112</h2>	
+	<P>내용......2</p>
+	<h2 id='header3'>제목 11113</h2>	
+	<P>내용......3</p>
+	<h2 id='header4'>제목 11114</h2>
+	<P>내용......4</p>
+	<h2 id='header5'>제목 11115</h2>
+	<P>내용......5</p>
+	
+</body>
+</html>
+

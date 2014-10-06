@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Selector </title>
+<script src='jquery-1.11.1.js'></script>
+<script>
+
+/* 
+   여러 개의 태그를 찾기
+   CSS 셀렉터 문법 : 태그명, 태그명, 태그명, ...
+ */
+$(function() {
+	$('h1, p').each(function(index, element) { //h1 또는 p를 찾아라		
+		console.log(index, $(element).html());
+	});
+});
+
+</script>
+
+</head>
+
+<body>
+
+	<h1>제목 11111</h1>	
+	<P>내용......1</p>
+	<h1>제목 11112</h1>	
+	<P>내용......2</p>
+	<h1>제목 11113</h1>	
+	<P>내용......3</p>
+	<h1>제목 11114</h1>
+	<P>내용......4</p>
+	<h1>제목 11115</h1>
+	<P>내용......5</p>
+	
+</body>
+</html>
+

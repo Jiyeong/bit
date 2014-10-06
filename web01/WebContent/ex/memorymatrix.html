@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Memory Matrix</title>
+
+<script>
+/******
+MEMORY RECALL
+
+Update Log:
+Added tips and 'grade' (VERY Hard to get highest, A+++!)
+
+A "clone" of Lumosity's Memory Matrix game.
+*******/
+var GAMESTATE_START = 0;
+var GAMESTATE_REVEALING = 1;
+var GAMESTATE_PLAYING = 2;
+var GAMESTATE_ERROR = 3;
+var GAMESTATE_LEVELING = 4;
+var GAMESTATE_OVER = 5;
+var yay = ["It's okay if you fail!","Harry Potter can do better than you.","Aw, cheer up!","We are trolls","Try your best! >:)","I hope you fail!","This text changes every time\n you restart the program","If you fail, your mommy\nwill get mad","This test is used by doctors\nall over the nation."];
+var rand = round(random(0,yay.length-1));
+var help = yay[rand];
+var level = 1;
+var match_count = 3;
+var tiles = [];
+var match_locations = [];
+var gameState = GAMESTATE_START;
+var lastMillis = millis();
+var waitTime = 0;
+var score = 0;
+var bonus = 5;
+var trials = 15;
+var match_grid = {
+    3: 9,
+    4: 9,
+    5: 16,
+    6: 25,
+    7: 25,
+    8: 25,
+    9: 36,
+    10: 36,
+    11: 36,
+    12: 36,
+    13: 36,
+    14: 36,
+    15: 36,
+    16: 36,
+    17: 36,
+    18: 36,
+    19: 49,
+    20: 49
+};
+
+var tile = function() {
+    this.isFlipping = false;
+    this.flipState = 0;
+    this.flipTime = 0;
+    this.isMatched = false;
+    this.isErrored = false;
+    
+    this.flip = function(){
+        if(!this.isFlipping) {
+            this.isFlipping = true;
+            this.flipState = 1;
+            this.flipTime = 0.5;
+        }
+    };
+    
+    this.matched = function() {
+        this.isMatched = true;
+    };
+    
+    this.errored = function() {
+        this.isErrored = true;
+    };
+    
+    this.update = function(gameTime) {
+        if(this.isFlipping) {
+            this.flipTime -= gameTime;
+            
+            if(this.flipTime <= 0) {
+                this.flipTime = 0;
+                switch(this.flipState) {
+                    case 1:
+                        this.flipState = 2;
+                        this.flipTime = 1;
+                        break;
+                        
+                    case 2:
+                        this.flipState = 3;
+                        this.flipTime = 0.5;
+                        break;
+                        
+                    case 3:
+                        this.flipState = 0;
+                        this.isFlipping = false;
+                        break;
+                }
+            }
+        }
+    };
+    
+    this.draw = function(x, y, w) {
+        stroke(0, 0, 0);
+        noFill();
+        rect(x, y, w, w);  
+        
+        if(this.isMatched) {
+            fill(255, 0, 0);
+            rect(x, y, w, w);
+        } else if(this.isErrored) {
+            fill(255, 0, 0);
+            textAlign(CENTER, CENTER);
+            text("X", x + w / 2, y + w / 2);
+        } else if(this.isFlipping) {
+            fill(255, 0, 0);
+            var sw;
+            switch(this.flipState) {
+                case 1:
+                    sw = w * (1 - this.flipTime/0.5);
+                    rect(x + (w/2) - (sw/2), y, sw, w);
+                    break;
+                    
+                case 2: 
+                    rect(x, y, w, w);
+                    break;
+                    
+                case 3:
+                    sw = w * (this.flipTime/0.5);
+                    rect(x + (w/2) - (sw/2), y, sw, w);                    
+                    break;
+            }
+        }
+    };
+};
+
+var initLevel = function() {
+    trials--;
+    tiles.length = 0;
+    match_locations.length = 0;
+    
+    for(var i = 0; i < match_grid[match_count]; i++) {
+        tiles.push(new tile());
+    }
+    
+    while(match_locations.length < match_count) {
+        var ml = floor(random(0, tiles.length));
+        if(match_locations.indexOf(ml) < 0) {
+            match_locations.push(ml);
+            tiles[ml].flip();
+        }
+    }
+    
+    gameState = GAMESTATE_REVEALING;
+};
+
+var mouseClicked = function() {
+    switch(gameState) {
+        case GAMESTATE_START:
+            level = 1;
+            match_count = 3;
+            score = 0;
+            bonus = 5;
+            trials = 15;            
+            initLevel();           
+            break;
+            
+        case GAMESTATE_REVEALING:
+            break;
+            
+        case GAMESTATE_PLAYING:
+            var offsetX = mouseX - 50;
+            var offsetY = mouseY - 75;
+            if(offsetX > 0 && offsetX < 300) {
+                if(offsetY > 0 && offsetY < 300){
+                    var w = 300 / sqrt(match_grid[match_count]);
+                    var x = floor(offsetX / w);
+                    var y = floor(offsetY / w);
+                    var index = y * sqrt(match_grid[match_count]) + x;
+                    var tile = tiles[index];
+                    
+                    debug(index);
+                    if(!tile.isMatched && !tile.isErrored) {
+                        if(match_locations.indexOf(index) >= 0) {
+                            score += 10;
+                            tile.matched();
+                            match_locations.splice(match_locations.indexOf(index), 1);
+                            if(match_locations.length === 0){
+                                gameState = GAMESTATE_LEVELING;
+                                waitTime = 3000;
+                                bonus = 5;
+                                for(var z = 1; z < level; z++){
+                                    bonus += bonus;
+                                }
+                                score += bonus;
+                            }
+                        }
+                        else {
+                            tile.errored();
+                            gameState = GAMESTATE_ERROR;
+                            waitTime = 2000;
+                            for(var i = 0; i < match_locations.length; i++){
+                                tiles[match_locations[i]].isMatched = true;
+                            }
+                        }                        
+                    }
+                }
+            }
+            break;
+            
+        case GAMESTATE_OVER:
+            gameState = GAMESTATE_START;
+            break;
+    }
+};
+
+var update = function(gameTime) {
+    for(var i = 0; i < tiles.length; i++) {
+        tiles[i].update(gameTime);
+    }
+    
+    switch(gameState) {
+        case GAMESTATE_START:
+            break;
+            
+        case GAMESTATE_REVEALING:
+            var flippingCount = tiles.filter(function(t, i){
+                return tiles[i].isFlipping === true;
+            }).length;
+            
+            if(flippingCount === 0){
+                gameState = GAMESTATE_PLAYING;
+            }
+            break;
+            
+        case GAMESTATE_PLAYING:
+            break;
+            
+        case GAMESTATE_ERROR:
+            waitTime -= 1000 * gameTime;
+            if(waitTime <= 0) {
+                if(trials <= 0) {
+                    gameState = GAMESTATE_OVER;
+                    return;
+                }
+                level = max(1, level - 1);
+                match_count = max(3, match_count - 1);
+                initLevel();
+            }
+            break;
+            
+        case GAMESTATE_LEVELING:
+            waitTime -= 1000 * gameTime;
+            if(waitTime <= 0) {
+                if(trials <= 0) {
+                    gameState = GAMESTATE_OVER;
+                    return;
+                }                
+                level++;
+                match_count++;
+                initLevel();
+            }
+            break;
+            
+        case GAMESTATE_OVER:
+            break;
+    }
+};
+
+var drawStart = function() {
+    background(255, 255, 255);
+    fill(75, 75, 75);
+    textSize(28);
+    textAlign(CENTER, CENTER);
+    text("MEMORY MATRIX", 200, 50);
+    textSize(12);
+    text("A Lumosity 'Memory Matrix' clone.", 200, 80);
+    fill(75, 75, 75);
+    textSize(20);
+    text("Tip: "+help,200,250);
+    fill(0, 0, 0);
+    textSize(16);
+    text("Click to Start", 200, 150);
+};
+
+var drawGame = function() {
+    background(255, 255, 255);
+    
+    noStroke();
+    fill(0, 0, 0);
+    textSize(14);
+    textAlign(CENTER, CENTER);
+    text("Tiles: " + match_count, 70, 25);
+    text("Trials: " + trials, 200, 25);
+    text("Score: " + score, 320, 25);
+    
+    var w = 300  / sqrt(match_grid[match_count]);
+    for(var i = 0; i < tiles.length; i++) {
+        var x = floor(i % sqrt(match_grid[match_count]));
+        var y = floor(i / sqrt(match_grid[match_count]));
+        tiles[i].draw(50 + x * w, 75 + y * w, w);
+    }
+    
+    if(gameState === GAMESTATE_REVEALING) {
+        fill(255, 0, 0);
+        text("Here we go!\nPAY ATTENTION!", 200, 50);
+    }
+    
+    if(gameState === GAMESTATE_PLAYING) {
+        fill(0, 0, 255);
+        text("Where were the red tiles?", 200, 50);
+    }    
+    
+    if(gameState === GAMESTATE_ERROR) {
+        fill(0, 0, 0, 150);
+        rect(50, 75, 300, 300);
+        fill(255, 0, 0);
+        text("OOPS!\nDropping down a level.", 200, 50);
+    }
+    
+    if(gameState === GAMESTATE_LEVELING) {
+        fill(0, 0, 0, 150);
+        rect(50, 75, 300, 300);
+        fill(65, 135, 65);
+        text("Perfect! +" + bonus, 200, 50);
+    }
+};
+
+var drawOver = function() {
+    background(255, 255, 255);
+    textSize(32);
+    fill(0, 0, 0);
+    text("GAME OVER!", 200, 50);
+    textSize(20);
+    text("Score: " + score, 200, 200);
+    text("Click to Play Again", 200, 150);
+    var grade = "";
+    if (score <= 1400){
+        grade = "F\nYou have the IQ\nof a ring-ding";
+    }
+    if (score > 1400 && score < 1600){
+        grade = "F+\nHarry Potter could have\ndone better than you.";
+    }
+    if (score > 1600 && score < 1800){
+        grade = "D-\nYou must forget your\nhomework every day.";
+    }
+    if (score > 1800 && score < 2000){
+        grade = "D+\nNot the brightest\nbulb in the box.";
+    }
+    if (score > 2000 && score < 2200){
+        grade = "C-\nThis is the range of all\nchimpanzees, nimwits,\nand idiots.";
+    }
+    if (score > 2200 && score < 2400){
+        grade = "C+\nIf aliens landed, they would\ndeclare no intellegent life\non our planet.";
+    }
+    if (score > 2400 && score < 2600){
+        grade = "B-\nStarting to step into\nthe acceptable scale.";
+    }
+    if (score > 2600 && score < 2800){
+        grade = "B+\nHmm... not bad for a rookie!";
+    }
+    if (score > 2800 && score < 3000){
+        grade = "A-\nYou can do better!";
+    }
+    if (score > 3000 && score < 4000){
+        grade = "A\nNot the best grade...";
+    }
+    if (score > 4000 && score > 5000){
+        grade = "A+\nBetter than the average\nchimpanzee.";
+    }
+    if (score > 5000 && score < 6000){
+        grade = "A++\nYou should be proud...";
+    }
+    if (score > 6000){
+        grade = "A+++\nOnly Bill Gates could\nget to this level.";
+    }
+    textSize(30);
+    text(grade,200,300);
+};
+
+var draw = function() {
+    var thisMillis = millis();
+    var gameTime = (thisMillis - lastMillis) / 1000;
+    lastMillis = thisMillis;
+    
+    update(gameTime);
+    switch(gameState) {
+        case GAMESTATE_START:
+            drawStart();
+            break;
+            
+        case GAMESTATE_REVEALING:
+        case GAMESTATE_PLAYING:
+        case GAMESTATE_ERROR:
+        case GAMESTATE_LEVELING:
+            drawGame();
+            break;
+            
+        case GAMESTATE_OVER:
+            drawOver();
+            break;
+    }
+};
+</script>
+
+</head>
+<body>
+
+</body>
+</html>
