@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> toggle로 작동 예 </title>
+
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+	click() => 클릭 이벤트 리스너 등록 
+ */
+	
+ 	$(function() {
+ 		var state = false;
+ 		
+ 		// 버튼을 누를 때마다 번갈아 가면서 이미지 태그를 생성하라!
+ 		// i4.jpg와 i5.jpg를 생성
+ 
+ 		$('#btn1').click(function(event) {
+ 			if(state){
+ 			$('<img>').attr('src', 'i4.jpg')
+ 				.css('width','100px')
+ 				.css('border', '5px solid green')
+ 				.appendTo('body');
+ 				state = true;
+ 			} else {
+ 			$('<img>').attr('src', 'i5.jpg')
+				.css('width','100px')
+				.css('border', '5px solid green')
+				.appendTo('body');
+ 				state = false;
+ 			}
+ 		});
+ 		
+ 		
+ 	});
+</script>
+
+</head>
+
+<body>
+	<button id='btn1'>이미지 추가</button><br>
+	<img id='img1' src='i3.jpg' width='150'>
+</body>
+</html>
+
+
+

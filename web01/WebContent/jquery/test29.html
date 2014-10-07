@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 리스너 등록 </title>
+
+<script src='jquery-1.11.1.js'></script>
+<script>
+/* 
+	이벤트 리스너 : 이벤트가 발생되었을 때 호출될 함수
+	bind() => 이벤트 리스너 등록
+	$().bind(이벤트명, 함수);
+	$().bind({이벤트명:함수, 이벤트명:함수, ...}); // 아예 객체를 넘겨주는 방법 jQuery는 많이 씀
+ */
+ 
+ 	// ready 이벤트 : DOM 트리가 완성되었을 때 이벤트 발생.
+	$(document).bind('ready', function(event){
+		alert('okok');
+	});
+ 
+ 	// ready 이벤트 리스너 등록의 단축 표기법.
+	$(function() {
+		/* 
+		$('#img1').bind('click', function(event) { // onclick은 함수 이름.이벤트 이름 아님.
+			// 이미지를 클릭하면 맨 뒤로 해당 이미지를 옮긴다.
+			$(this).appendTo('body');
+		}); 
+		 */
+		 
+		 // cross browsing  처리
+		$('img').bind('click', function(event) { 
+			$(this).appendTo('body');
+		}); 
+	});
+</script>
+
+</head>
+
+<body>
+	<img id='img1' src='i3.jpg' width='150'>
+	<img id='img2' src='i4.jpg' width='150'>
+	<img id='img3' src='i5.jpg' width='150'>
+</body>
+</html>
+
+
+

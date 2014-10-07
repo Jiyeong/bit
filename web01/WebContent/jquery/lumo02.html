@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-1.11.1.js'></script>
+<style>
+table {
+	margin: 20px; width : 500px;
+	height: 500px;
+	width: 500px;
+}
+
+.selected {
+	background-color: blue;
+}
+
+#btn1 {
+	width: 100px;
+	height: 30px;
+	background-color: pink;
+}
+td:hover {
+  opacity:0.3;
+  filter:alpha(opacity=0);
+}
+</style>
+</head>
+<script>
+	$(function() {
+		var n = 2;
+		$('#btn1').click(
+				function() {
+					if (n < 8) {
+						var result = 0;
+						$('tr:gt(0)').remove();
+						$('td:gt(0)').remove();
+						$('td').eq(0).attr('class', '').css('background','white');
+						for (var i = 0; i < n; i++) {
+							$('tr').eq(0).clone().appendTo('#table1');
+							$('td').eq(0).clone().appendTo('tr');
+						}
+						for (var i = 0; i < n; i++) {
+							var randomNumber = [];
+							var arrayA = [];
+							var a = Math.floor(Math.random()* (n * n));
+							randomNumber[i] =a
+							
+							$('td').eq(randomNumber[i]).css('background', 'red')
+							                           .attr('class','ok');
+							console.log(randomNumber[i]);
+							}
+							
+						}
+				
+				$('td').click(function(event) {
+	                  $(this).toggleClass('selected');
+	                  if ($('.ok').attr('class') == $(this).attr('class')){
+	                    $(this).css({
+	                      'background-image' : 'url(y.png)'});
+	                  } else {
+	                    $(this).css({
+	                      'background-image' : 'url(x.png)'});
+	                  }
+	                });
+										
+					setTimeout(function(){
+						for (var m = 0; m < n * n; m++) {
+							$('td').eq(m).css('background', 'white');
+						}
+					}, 2000);
+	
+					n++
+				});
+	});
+</script>
+<body>
+	<button id='btn1'>START</button>
+	<div id='Body'>
+		<table id='table1' border="1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

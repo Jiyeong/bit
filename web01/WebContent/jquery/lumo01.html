@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-1.11.1.js'></script>
+
+<script>
+$(function(){
+	var n=2;
+
+	$('#btn1').click(function(){		
+	for (var i=0; i < n; i++) {
+		  var randomNumber = [];
+		  var arrayA=[];
+				randomNumber[i] = Math.floor(Math.random() * (n * n));
+				$('td').eq(randomNumber[i]).css({
+					'backgruond-color':'red'			
+				});
+				arrayA[i] = randomNumber[i];
+			}
+			setInterval(function() {
+				for (var m = 0; m <n*n; m++) {
+					$('td').eq(m).css('visibility', 'hidden');
+				}
+			}, 2000);			
+		});	
+			console.log(n);		
+
+		$('#btn2').click(function() {
+			$('tr:gt(0)').remove();
+			$('td:gt(0)').remove();
+			  			
+			 for (var i = 0; i < n-1; i++) {				
+				$('tr').eq(0).clone().appendTo('#table1');
+				$('td').eq(0).clone().appendTo('tr');
+			} 
+		})
+	});
+</script>
+<style>
+
+</style>
+</head>
+<body>
+<button id='btn1'>버튼</button>
+<button id='btn2'>버튼2</button>
+<div id='Body'>
+<table id='table1' border="1">
+<tr>
+<td></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

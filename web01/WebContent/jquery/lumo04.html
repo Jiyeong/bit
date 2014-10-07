@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src='jquery-1.11.1.js'></script>
+<style>
+table {
+	margin: 20px; width : 500px;
+	height: 500px;
+	width: 500px;
+}
+
+.selected {
+	background-color: blue;
+}
+
+#btn1 {
+	width: 100px;
+	height: 30px;
+	background-color: pink;
+}
+td:hover {
+  opacity:0.3;
+  filter:alpha(opacity=0);
+}
+</style>
+</head>
+<script>
+	$(function() {
+		var n = 2;
+		
+		var randomNumber = [];
+		/* var arrayA = []; */
+		
+		$('#btn1').click(
+				function() {
+					if (n < 8) {
+						/* var result = 0; */
+						$('tr:gt(0)').remove();
+						$('td:gt(0)').remove();
+						$('td').eq(0).attr('class', '').css('background','white');
+						for (var i = 0; i < n -1; i++) {
+							$('tr').eq(0).clone().appendTo('#table1');
+							$('td').eq(0).clone().appendTo('tr');
+						}
+						for (var i = 0; i <= n ; i++) {
+							/* var randomNumber = [];
+							var arrayA = [];*/
+							var a = Math.floor(Math.random()* (n * n));
+							for(var k =0;k < i;k++){
+							randomNumber[i] =a; 
+							if(randomNumber[i] == randomNumber[k]){
+								i = i-1;
+								
+							} else {
+							$('td').eq(a).css('background', 'red')
+							                           .attr('class','ok');
+							/* console.log(randomNumber[i]); */
+								}
+							/* console.log(randomNumber.length); */
+							}
+						}
+					}
+				$('td').click(function(event) {
+	                  $(this).toggleClass('selected');	
+	                  
+	                  if ($('.ok').attr('class') == $(this).attr('class')){
+	                    $(this).css({
+	                      'background-color' : 'blue'});
+	                    		
+	                  } else {
+	                    $(this).css({
+	                      'background-image' : 'url(x.png)'});
+	                  	}
+	                  /* console.log($('.selected').length);  */
+	                  // 선택한 td의 개수에 맞춰서 정답 여부 체크
+	                  if(randomNumber.length-1 == $('.selected').length){
+	                  	if($('.ok.selected').length == $('.ok').length){
+	                  		 $(this).css({'background-image' : 'url(y.png)'});
+	                 	 		alert("정답입니다~!");
+	                  	} else if($('.ok.selected').length != $('.selected').length){  {
+	                 	 		alert("땡! 틀렸습니다~!!");
+	                  			}
+	                    	} 
+	                 	} else if(randomNumber.length-1 < $('.selected').length){
+	                 		 alert("선택 개수를 초과하였습니다.");
+	                  }  
+	                  console.log(".ok.selected = ",$('.ok.selected').length);
+	                  console.log("randomNumber = ",randomNumber.length-1);
+	                  console.log("ok = ",$('.ok').length);
+	                  /* console.log($('.selected').length);  */
+	                   
+	                });
+										
+					setTimeout(function(){
+						for (var m = 0; m < n * n; m++) {
+							$('td').eq(m).css('background', 'white');
+						}
+					}, 2000);
+	
+					n++
+				});
+
+	});
+</script>
+<body>
+	<button id='btn1'>START</button>
+	<div id='Body'>
+		<table id='table1' border="1">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

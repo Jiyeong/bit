@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+td {
+	margin: 10px;
+	padding: 40px;
+	background-color: lightgray;
+}
+table {
+	margin: 50px;
+	border-radius:5px;
+}
+
+.selected {
+	background-color: blue;
+}
+</style>
+<script src='jquery-1.11.1.js'></script>
+</head>
+
+<body>
+<script>
+
+// random
+
+/* // display Q
+$(function() {
+	var ran = Math.floor(Math.random() * 9); 
+	setInterval(function() {
+		$('td').toggleClass(ran)
+				.css('background-color', 'blue');
+	}, 1000);  //1초 마다
+
+});
+ */
+// selected A
+$(function() {
+	$('td').click(function(event) {		
+		$(this).toggleClass('selected');
+	});
+
+	
+	
+$(function() {
+	
+})	
+	
+});
+
+</script>
+
+
+<table id='ta1' border=1>
+<tr>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+</tr>
+
+</table>
+</body>
+</html>
