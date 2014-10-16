@@ -26,7 +26,7 @@ import java.util.Scanner;
 // $ 10 + 20 = 30 입니다.
 
 // 단계2 : 메서드 도입 => 결과 출력을 별도의 메서드로 분리!
-public class Test27 {
+public class Test27_02 {
   // void : 리턴하는 결과가 없다. -> return 명령어 없다. 
   static void displayResult(
       int v1, int v2, String op, int result) {

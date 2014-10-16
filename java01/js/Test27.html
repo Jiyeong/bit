@@ -6,10 +6,31 @@
 </head>
 <body>
 <script>
-var scores = [100, 90, 80];
-for(var i in scores){
-	console.log(i, scores[i]);
+var v1;
+var v2;
+var op;
+var result;
+
+v1 = parseInt(prompt('첫 번째 값을 입력하시오')); 
+v2 = parseInt(prompt('두 번째 값을 입력하시오'));
+op = prompt('연산자를 입력하시오');
+
+
+function compute() {
+	  switch(op) {
+	    case "+" : result = v1 + v2; break;
+	    case "-" : result = v1 - v2; break;
+	    case "*" : result = v1 * v2; break;
+	    case "/" : result = v1 / v2; break;
+	  }
+	}
+
+function displayResult() {
+	console.log("-------------------");
+	console.log(v1, op, v2, '=', result);
+	console.log("-------------------");
 }
+
 </script>
 </body>
 </html>

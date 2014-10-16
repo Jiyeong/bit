@@ -30,7 +30,7 @@ import java.util.Scanner;
 // 파라미터 : v1, v2, op
 // 리턴 : v1과 v2의 연산결과
 
-public class Test27 {
+public class Test27_03 {
   // void : 리턴하는 결과가 없다. -> return 명령어 없다. 
   static void displayResult(
       int v1, int v2, String op, int result) {

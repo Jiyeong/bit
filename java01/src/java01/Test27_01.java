@@ -26,7 +26,7 @@ import java.util.Scanner;
 // $ 10 + 20 = 30 입니다.
 
 // 단계1 : 메서드 도입 전
-public class Test27 {
+public class Test27_01 {
   // 3) switch문을 사용하여 계산 결과를 result 변수에 담는다.
   // 그리고 그 결과를 입력 값과 함께 출력한다.
   public static void main(String[] args) {

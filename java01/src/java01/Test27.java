@@ -46,18 +46,10 @@ public class Test27 {
 
   static void compute(){   
     switch(op){
-    case "+": 
-      result = v1 + v2;
-      break;
-    case "-" :
-      result = v1 - v2;
-      break;
-    case "*" :
-      result = v1 * v2;
-      break;
-    case "/" :
-      result = v1 / v2;
-      break;
+    case "+" : result = v1 + v2; break;
+    case "-" : result = v1 - v2; break;
+    case "*" : result = v1 * v2; break;
+    case "/" : result = v1 / v2; break;
     default :
       System.out.println("error");
     }
