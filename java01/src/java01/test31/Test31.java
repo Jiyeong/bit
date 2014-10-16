@@ -29,9 +29,9 @@ public class Test31 {
 
     // Calculator 클래스의 명령에 따라 준비된 메모리를 => 인스턴스
     // 그 인스턴스 메모리의 주소를 저장하는 변수를 => 레퍼런스
-    Calculator c1 = new Calculator();
+    Calculator c1 = new Calculator(); //Calculator c1 -> 주소변수
     Calculator c2 = new Calculator();
-    
+    //레퍼런스 만들 때는 클래스를 로딩하지 않는다.
     c1.plus(10);
     c2.plus(20);
    

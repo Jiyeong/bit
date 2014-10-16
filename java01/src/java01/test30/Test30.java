@@ -43,7 +43,7 @@ public class Test30 {
     System.out.println("c1의 결과는 = " + Calculator.getResult(c1));
     System.out.println("c2의 결과는 = " + Calculator.getResult(c2));
 
-    // 예) 은행 - c1, c2 라는 계좌.
+    // 예) 은행 - c1, c2 라는 계좌. result 통장에 저장
     }
 
   }

@@ -14,7 +14,6 @@
  */
 package java01;
 
-
 import java.util.Scanner;
 
 // 주제 : 사용자로부터 두 개의 값과 연산자를 입력 받아 계산한 후
@@ -45,18 +44,10 @@ public class Test27_03 {
     int result = 0;
 
     switch(op){
-    case "+": 
-      result = v1 + v2;
-      break;
-    case "-" :
-      result = v1 - v2;
-      break;
-    case "*" :
-      result = v1 * v2;
-      break;
-    case "/" :
-      result = v1 / v2;
-      break;
+    case "+" : result = v1 + v2; break;
+    case "-" : result = v1 - v2; break;
+    case "*" : result = v1 * v2; break;
+    case "/" : result = v1 / v2; break;
     default :
       System.out.println("error");
     }

@@ -11,9 +11,8 @@
    int plus(int i, int b) {
      return i + b;
    }
- */
+*/
 package java01;
-
 
 import java.util.Scanner;
 
@@ -45,18 +44,10 @@ public class Test27_01 {
     int result = 0;
     
     switch(op){
-    case "+": 
-      result = v1 + v2;
-      break;
-    case "-" :
-      result = v1 - v2;
-      break;
-    case "*" :
-      result = v1 * v2;
-      break;
-    case "/" :
-      result = v1 / v2;
-      break;
+    case "+" : result = v1 + v2; break;
+    case "-" : result = v1 - v2; break;
+    case "*" : result = v1 * v2; break;
+    case "/" : result = v1 / v2; break;
     default :
       System.out.println("error");
     }

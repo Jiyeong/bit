@@ -4,11 +4,11 @@ package java01.test31;
 public class Calculator {
   // 인스턴스 변수 선언 => static 제거
   // 단, => 인스턴스 변수는 클래스 로딩할 때 준비되지 않는다.
-  //     => 별도으 명령을 내려야만 준비한다.
+  //     => 별도의 명령을 내려야만 준비한다.
   //     => 명령 내리는 법? new Calculator();
   //        해석 : JVM 듣거라. Calculator 클래스에 선언된 인스턴스 변수를 
   //               Heap 메모리에 준비하라! 그리고 그 시작 주소를 리턴하라!
-  private int result;
+  private int result;// 인스턴스 메모리 만들어라.메모리 이름은 result. 호출은 내부에서만.명령어.
   
   // 인스턴스 메서드
   int getResult() {
