@@ -15,7 +15,7 @@ public class Truck extends Car{
     
     // 수퍼 클래스의 기본 생성자가 없으면 
     // 다음과 같이 다른 수퍼 클래스의 생성자를 명시적으로 호출해야 한다.
-    super("미정","미정",800);
+    super("미정","미정",800); // **Chc** 
     autoDump = true;
   }
 }

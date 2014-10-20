@@ -8,6 +8,7 @@ public class Car {
   java.util.Date releaseDate;
   int capacity =5; // 초기화 문장
   
+// **Chc**  
 /*  // Truck.java 에서 //super();가 자동 생성되는데 아래 기본 생성자가 없으면 오류난다.
 
    public Car() {
