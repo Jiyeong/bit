@@ -23,12 +23,12 @@ public class Score {
   
   // 기본 생성자 : 파라미터가 없는 생성자
   // 생성자를 정의하지 않으면 컴파일러가 다음과 같이 자동으로 추가한다.
-  public Score() {
+  public Score() { // 용도 : 초기화 overloading
     this.name = "홍길동";
   }
   
   // 생성자 추가
-  public Score (String name, int kor, int eng, int math) {
+  public Score (String name, int kor, int eng, int math) {// 용도 : 초기화 overloading
     this.name = name;
     this.kor = kor;
     this.eng = eng;
