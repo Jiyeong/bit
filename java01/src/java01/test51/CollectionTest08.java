@@ -14,7 +14,7 @@ class MyStack {
     } else
       System.out.println("Stack is Full");
     //return -1;
-
+    // list[top++] = value;
   }
 
 
@@ -29,6 +29,7 @@ class MyStack {
       return null;
     }
   }
+  // return list[--top];
 }
 /*====================Queue====================*/
 class MyQueue {
@@ -49,16 +50,12 @@ class MyQueue {
   }
   
   /*====================Queue Add====================*/
-  public int add(Object value){//void
+  public void add(Object value){
     end.value = value;  
     //Bucket empty = new Bucket();
     end.next = new Bucket();
     end = end.next;
-    return 0;
 
-  }
-  public int size(){
-    return size;
   }
   /*====================Queue Poll====================*/
   // 첫 번째 입력 값을 꺼낸다. 목록에서 제거됨
@@ -69,7 +66,11 @@ class MyQueue {
     start = start.next;
    
     return temp.value;
-    
+    /*
+    Object temp = start.value;
+    start = start.next;
+    return temp;
+    */
   }
 }
 
