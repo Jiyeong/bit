@@ -3,6 +3,7 @@
  - 역순으로 데이터를 꺼내주는 Iterator 만들기 
    => ReverseIterator 클래스 추가
  */
+// iterator 꺼내는 부분을 다각화
 package java01.test53.step03;
 
 public class Test03 {
@@ -11,6 +12,10 @@ public class Test03 {
     
     ReverseIterator iterator = new ReverseIterator(args); 
     //EvenIterator iterator = new EvenIterator(args); 
+    
+    //iterator를 바꿔서 사용하려면 결국 소스 코드내에서 위의 줄을 
+    // 바꿔야 실행이 되더라.
+    // 그래서! iterator를 교체하더라도 소스를 바꾸지 않을 수 있는 방법은? step4
     
     /* 
     Iterator가 바뀌더라도 다음 코드는 변경할 필요가 없다. 

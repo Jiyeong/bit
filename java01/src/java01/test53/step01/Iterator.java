@@ -12,7 +12,7 @@ public class Iterator {
     this.list = list;
   }
   
-  public boolean hasNext() {
+  public boolean hasNext() {// 이런 인터페이스를 가지고 있음
     if(cursor < list.length)
       return true;
     else

@@ -27,21 +27,43 @@ import java.util.Properties;
 public class Test04 {
 
   public static void main(String[] args) throws Exception {
+    // System.getProperty("환경변수명")
+    // => -D 옵션으로 넘어온 값 및 JVM 환경 변수 값을 꺼낸다. 
     String iteratorClassName = System.getProperty("iterator");
-
+    // iterator 클래스 이름을 받아옴, 가져옴.
+    // 프로그램 아규먼트 말고 JVM 아규먼트 있다!
+    // java -D이름(:키)=값(:value)라는 뒤에 옵션을 준다.
+    // -D 이름=값 -D 이름=값
+    // 이걸 위해 시스템의 도움을 받아야 함. 시스템이라는 클래스(도구함)는
+    // 시스템을 다루는 메서드가 잔뜩 들어가 있음.
+    //그중에 겟프로퍼티라는 메서드(도구) 있음.
+    // 이 도구에 이름 값을 주면 그러한 이름을 갖는 값을 리턴해줌.
+    // 
+    
     // 클래스 이름 (패키지명 포함)으로 객체 생성하기
-    // 1) 클래스를 로딩하라.
+    // 1) 클래스(도구함)를 로딩하라.
     Class clazz = Class.forName(iteratorClassName);//설명..!**
+    //Class clazz = Class.forName("java03.test53.step04.iterator");
     // 클래스라는 이름을 갖는 클래스. 클래스의 정보를 담는 것 클래스??**
     // ()클래스를 로딩(forName)하는걸 도와주는 클래스 clazz를 만듬.??
     // 도우미 클래스 clazz. 얘만 있으면 클래스 정보, 인스턴스까지 생성 가능.젛아.
-
+    // teratorClassName 이름을 갖는 클래스를 로딩하여, 
+    // 로딩된 클래스의 정보를 클래스화
 
     // 2)Class 객체를 사용하여 인스턴스 생성
     Iterator iterator = (Iterator)clazz.newInstance();
+    // 그 로딩된 클래스 정보를 가지고 인스턴스를 생성한다.
+    // 생성된 인스턴스 주소 리턴. 주소 명확히 알려줘야해. 인스턴스 주소는 이터레이터주소야.
+    // 그러니까 이터레이터 타입으로 지정해줘
+    // 리턴 타입 
+    // 생성한 인스턴스
+    
 
     // 3) Iterator를 사용하기 전에 필요한 값을 설정한다.
     iterator.setList(args);
+    // 별도의
+    // 클래스가 결정되어있다. iterator 라고. 다른 iterator로 바꾸면 2)에서 오류남. 
+    // 클래스 다름. 타입 다름. // 클래스 다르면 지정 안됨;
 
     while(iterator.hasNext()) {
       System.out.println(iterator.next());
@@ -49,7 +71,8 @@ public class Test04 {
 
     System.out.println("---------------------");
     // Iterator 크래스의 메서드 이름을 출력
-    Method[] methods =clazz.getMethods();
+    Method[] methods =clazz.getMethods(); //clazz가 가리키는 곳에는 메모리가 있고.
+    //그메소드이름, 정보를 추출. 하여 메서드라는 인스턴스에 담겨서 배열로 만들어진다.
     for(Method method : methods){
       System.out.println(method.getName()); //public 메서드
     }

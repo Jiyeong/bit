@@ -13,7 +13,7 @@ public class ReverseIterator extends Iterator {
         (super.super.노노!!!!이런 문법은 있을 수 없음!!)
     */
     super.setList(list); // 기존 기능은 그대로 두고 
-    cursor = list.length -1; // 새 명령 추가
+    cursor = list.length -1; // 새 명령 추가  --맨끝에 커서추가
   } 
   
   public boolean hasNext() {
@@ -27,3 +27,5 @@ public class ReverseIterator extends Iterator {
     return list[cursor--]; 
   }
 }
+//오버라이딩의 전형적 예제!
+/*오버라이딩의 정의! 상속받은 메서드를 자신의 역할에 맞춰서 재정의*/
