@@ -33,21 +33,21 @@ public class Score {
 
       switch(inputList[0]){
       case "help": help(); 
-      return true;
+        return true;
       case "list": list();
-      return true;
+        return true;
       case "add": add(inputList[1], Integer.parseInt(inputList[2]),
           Integer.parseInt(inputList[3]),
           Integer.parseInt(inputList[4]));
-      return true;
+        return true;
       case "delete": delete(Integer.parseInt(inputList[1]));
-      return true;
+        return true;
       case "update": update(Integer.parseInt(inputList[1]));
-      return true;
+        return true;
       case "view": view(Integer.parseInt(inputList[1]));
-      return true;
+        return true;
       case "exit": exit();
-      return false;
+        return false;
       default:
         System.out.println("잘못된 명령어 입니다.");
         return true;

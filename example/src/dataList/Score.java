@@ -9,6 +9,7 @@ public class Score {
   static ArrayList dataList = new ArrayList();
   static String[] inputList = new String[4];
   static Scanner in = new Scanner(System.in);
+  
   String name;
   int kor;
   int eng;
@@ -146,23 +147,18 @@ public class Score {
 
       System.out.println("이름(" + sData.name + ")? ");
       name = in.nextLine();
-      //if((name = upScanner.nextLine()) != null){}
 
       System.out.println("국어(" + sData.kor + ")? ");
       kor = in.nextLine();
-      //if((kor = upScanner.nextLine()) != null){}
 
       System.out.println("영어(" + sData.eng + ")? ");
       eng = in.nextLine();
-      //if((eng = upScanner.nextLine()) != null){}
 
       System.out.println("수학(" + sData.math + ")? ");
       math = in.nextLine();
-      //if((math = upScanner.nextLine()) != null){}
 
       System.out.println("정말 변경하시겠습니까?(y / n): ");
       selector = in.nextLine();
-      //selector = upScanner.nextLine();
 
       switch(selector){
       case "y": case "Y":
@@ -193,7 +189,6 @@ public class Score {
       System.out.println("출력할 데이터가 존재하지 않습니다.");
     } else {
 
-      //System.out.println(i + "dataList[i]");
       sum = ((Score)dataList.get(index)).kor +
           ((Score)dataList.get(index)).eng + 
           ((Score)dataList.get(index)).math;
@@ -206,11 +201,8 @@ public class Score {
       System.out.println("수학: " + ((Score)dataList.get(index)).math);
       System.out.println("합계: " + sum);
       System.out.println("평균: " + avg);
-
     }
-
   }
-
 
   public static void exit() throws Exception {
     //System.out.println("exit입니다"); 
@@ -225,7 +217,6 @@ public class Score {
       out2.writeInt(((Score)dataList.get(i)).math);
     }
     System.out.println("파일이 성공적으로 저장되었습니다.");
-
 
     out2.close();
     out.close();

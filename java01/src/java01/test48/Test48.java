@@ -6,7 +6,8 @@ public class Test48 {
     Student s1 = new Student("홍길동",10);
     Student s2 = new Student("홍길동",10);
     
-    System.out.println(s1.hashCode()); // 클래스명@hashvalue 에서 뒤의 해시만 출력.
+ // 클래스명@hashvalue 에서 뒤의 해시만 출력.
+    System.out.println(s1.hashCode()); 
     System.out.println(s2.hashCode());
 
   }
