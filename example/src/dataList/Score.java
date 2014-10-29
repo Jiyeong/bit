@@ -60,11 +60,11 @@ public class Score {
         return true;
       }
     } catch (ArrayIndexOutOfBoundsException e) {//
-      System.out.println("입력 개수가 잘못 되었습니다.");
-      System.out.println(e.getMessage());
+        System.out.println("입력 개수가 잘못 되었습니다.");
+        System.out.println(e.getMessage());
       return true;
     } catch (NumberFormatException e){
-      System.out.println("잘못된 형식의 데이터 입니다.");
+        System.out.println("잘못된 형식의 데이터 입니다.");
       return true;
     }
   }
@@ -212,7 +212,6 @@ public class Score {
   }
 
 
-
   public static void exit() throws Exception {
     //System.out.println("exit입니다"); 
     //같이 => 파일에 넣기
@@ -226,14 +225,7 @@ public class Score {
       out2.writeInt(((Score)dataList.get(i)).math);
     }
     System.out.println("파일이 성공적으로 저장되었습니다.");
-    /*out2.writeUTF(((Score)dataList.get(0)).name);
-    out2.writeInt(((Score)dataList.get(0)).kor);
-    out2.writeInt(((Score)dataList.get(0)).eng);
-    out2.writeInt(((Score)dataList.get(0)).math);
-    out2.writeUTF(((Score)dataList.get(1)).name);
-    out2.writeInt(((Score)dataList.get(1)).kor);
-    out2.writeInt(((Score)dataList.get(1)).eng);
-    out2.writeInt(((Score)dataList.get(1)).math);*/
+
 
     out2.close();
     out.close();
