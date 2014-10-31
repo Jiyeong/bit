@@ -1,10 +1,10 @@
-package java02.test08.command;
+package java02.test09.command;
 
 import java.util.Map;
-import java02.test08.Command;
-import java02.test08.Score;
-import java02.test08.ScoreDao;
-import java02.test08.annotation.Component;
+import java02.test09.Command;
+import java02.test09.Score;
+import java02.test09.ScoreDao;
+import java02.test09.annotation.Component;
 //총괄 관리자로부터 의존 객체를 주입받고 싶으면, setter메서드를 준비하라.
 
 // 이 메서드는 Test01이 호출한다.

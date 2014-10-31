@@ -20,14 +20,14 @@ ex)컴퓨터(의존객체) 는 수업(업무)에 필요한 것이지만 직접 �
     의존객체를 먼저 주입한다.
 
  */
-package java02.test08;
+package java02.test09;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
-import java02.test08.annotation.Component;
+import java02.test09.annotation.Component;
 
 import org.reflections.Reflections;
 
