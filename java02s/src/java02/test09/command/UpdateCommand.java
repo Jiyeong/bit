@@ -3,14 +3,14 @@ package java02.test09.command;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-import java02.test09.Command;
 import java02.test09.Score;
 import java02.test09.ScoreDao;
+import java02.test09.annotation.Command;
 import java02.test09.annotation.Component;
 
 
 @Component("update")
-public class UpdateCommand implements Command {
+public class UpdateCommand {
   ScoreDao scoreDao; // 의존 객체 사용
   Scanner scanner; // 의존 객체 사용
   
@@ -24,13 +24,10 @@ public class UpdateCommand implements Command {
   public ScoreDao getScoreDao() {
     return scoreDao;
   }
-  @Override
-  public String getCommandInfo() {
-    return "update";
-  }
 
-  @Override
-  public void service(Map<String, Object> params) throws Exception {
+
+  @Command
+  public void doUpdate(Map<String, Object> params) throws Exception {
     //ScoreDao scoreDao = (ScoreDao)params.get("scoreDao");
     //Scanner scanner = (Scanner)params.get("scanner");
     

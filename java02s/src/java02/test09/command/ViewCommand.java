@@ -2,14 +2,14 @@ package java02.test09.command;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java02.test09.Command;
 import java02.test09.Score;
 import java02.test09.ScoreDao;
+import java02.test09.annotation.Command;
 import java02.test09.annotation.Component;
 
 
 @Component("view")
-public class ViewCommand implements Command {
+public class ViewCommand  {
   ScoreDao scoreDao;
 
   public void setScoreDao(ScoreDao scoreDao) {
@@ -18,13 +18,9 @@ public class ViewCommand implements Command {
   public ScoreDao getScoreDao() {
     return scoreDao;
   }
-  @Override
-  public String getCommandInfo() {
-    return "view";
-  }
 
-  @Override
-  public void service(Map<String, Object> params) throws Exception {
+  @Command
+  public void doview(Map<String, Object> params) throws Exception {
     //ScoreDao scoreDao = (ScoreDao)params.get("scoreDao");
     
     @SuppressWarnings("unchecked")

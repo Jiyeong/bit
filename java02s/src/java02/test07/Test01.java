@@ -36,21 +36,25 @@ public class Test01 {
     List<String> classNames = classFinder.getClassList();
     
     // 2) 클래스를 로딩한다.
-    
     Class clazz = null;
     Command command = null;
     Component component = null;
 
     for (String className : classNames){
       clazz = Class.forName(className);
+      // clazz = Class.forName("ListCommand"); 위와 같다.
+      // clazz = ListCommand.class;
       
       
       // 3) 로딩된 클래스 중에서 @Compenent 애노테이션이 붙은 클래스만 
       // 인스턴스를 생성한다.
       component = (Component)clazz.getAnnotation(Component.class);
+      //(.class)->typeinfo
       if(component != null) {
         command = (Command)clazz.newInstance();
         commandMap.put(component.value(), command); //맵에넣기
+        // commandMap.put(component.value(), (Command)clazz.newInstance()); 
+        // 위의 두줄을 이렇게 한 줄로 한다. 위 두줄은 가독성을 떨어뜨림.
       }
     }
 

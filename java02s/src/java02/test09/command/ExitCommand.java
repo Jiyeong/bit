@@ -1,12 +1,12 @@
 package java02.test09.command;
 
 import java.util.Map;
-import java02.test09.Command;
 import java02.test09.ScoreDao;
+import java02.test09.annotation.Command;
 import java02.test09.annotation.Component;
 
 @Component("exit")
-public class ExitCommand implements Command {
+public class ExitCommand {
   ScoreDao scoreDao;
 
   public void setScoreDao(ScoreDao scoreDao) {
@@ -15,13 +15,9 @@ public class ExitCommand implements Command {
   public ScoreDao getScoreDao() {
     return scoreDao;
   }
-  @Override
-  public String getCommandInfo() {
-    return "exit";
-  }
 
-  @Override
-  public void service(Map<String, Object> params) throws Exception {
+  @Command
+  public void doexit(Map<String, Object> params) throws Exception {
     try {
       //ScoreDao scoreDao = (ScoreDao)params.get("scoreDao");
       scoreDao.save();

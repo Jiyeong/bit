@@ -3,14 +3,14 @@ package java02.test09.command;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-import java02.test09.Command;
 import java02.test09.Score;
 import java02.test09.ScoreDao;
+import java02.test09.annotation.Command;
 import java02.test09.annotation.Component;
 
 
 @Component("delete")
-public class DeleteCommand implements Command {
+public class DeleteCommand {
   ScoreDao scoreDao; // 의존 객체 사용
   Scanner scanner; // 의존 객체 사용
   
@@ -26,13 +26,8 @@ public class DeleteCommand implements Command {
     return scoreDao;
   }
   
-  @Override
-  public String getCommandInfo() {
-    return "delete";
-  }
-
-  @Override
-  public void service(Map<String, Object> params) throws Exception {
+  @Command
+  public void execute(Map<String, Object> params) throws Exception {
     //ScoreDao scoreDao = (ScoreDao)params.get("scoreDao");
     //Scanner scanner = (Scanner)params.get("scanner");
     
