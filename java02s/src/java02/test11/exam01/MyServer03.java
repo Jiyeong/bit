@@ -1,7 +1,7 @@
 /*
 클라이언트의와 여러 번 데이터 주고 받기
  */
-package test11.exam01;
+package java02.test11.exam01;
 
 import java.io.PrintStream;
 import java.net.ServerSocket;

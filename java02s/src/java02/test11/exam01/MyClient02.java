@@ -1,4 +1,4 @@
-package test11.exam01;
+package java02.test11.exam01;
 
 import java.io.PrintStream;
 import java.net.Socket;

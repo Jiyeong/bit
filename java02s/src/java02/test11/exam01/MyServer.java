@@ -2,7 +2,7 @@
 여러 클라이언트와 대화 나누기?
 => 동시에 대화 나누는 것이 불가능
  */
-package test11.exam01;
+package java02.test11.exam01;
 
 import java.io.PrintStream;
 import java.net.ServerSocket;
