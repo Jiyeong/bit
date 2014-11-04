@@ -1,6 +1,4 @@
 /*
-ServerSocket 사용법
-
 대기열 설정하기
  - 서버에서 클라이언트 연결을 받아들일 수 있는 개수를 지정
  */
@@ -14,11 +12,12 @@ import java.util.Scanner;
 public class MyServer02 {
 
   public static void main(String[] args) throws Exception {
+    
     // 클라이언트와 통신을 담당할 객체 생성
     System.out.println("서버 소켓 생성");
     
     // 두 번째 backlog 값은 대기열 길이를 지정한다.
-    ServerSocket ss = new ServerSocket(8888, 2);
+    ServerSocket ss = new ServerSocket(8888, 2); //what is a 'backlog'?
     
     // 대기열에 있는(연결을 대기하고 있는) 클라이언트들 중에서 하나 선택하기 -> accept
     // => 선택한 클라이언트와의 통신을 담당할 Socket 객체를 리턴
@@ -46,7 +45,7 @@ public class MyServer02 {
     
     // 클라이언트로 보낸다.
     // 클라이언트에서 문자열을 모두 받을 때까지 리턴하지 않는다. == blocking
-    // 입/출력은 항상 블로킹으로 다룬다. ==> 단점 해결 : Java non-blocking api  등장
+    // 입/출력은 항상 블로킹으로 다룬다. ==> 단점 해결 : Java non-blocking 등장
     out.println(message);
     
     in.close();
@@ -56,8 +55,9 @@ public class MyServer02 {
   }
 
   private static String prompt() {
-    Scanner keyboard = new Scanner(System.in);
     System.out.println(">");
+
+    Scanner keyboard = new Scanner(System.in);
     String message = keyboard.nextLine();
     keyboard.close();
     

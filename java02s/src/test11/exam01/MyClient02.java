@@ -4,7 +4,6 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-
 public class MyClient02 {
 
   public static void main(String[] args) throws Exception {
@@ -26,7 +25,7 @@ public class MyClient02 {
     out.println(message); // 서버가 데이터를 모두 읽을 때까지 리턴하지 않는다.
     
     // 서버가 보낸 메시지를 읽는다.
-    String line = in.nextLine(); // 서버가 문자열 한 줄을 보낼때 까지 리턴안함.
+    String line = in.nextLine(); // 서버가 문자열 한 줄을 보낼 때까지 리턴 안함.
     
     // 서버가 보낸 메시지를 출력
     System.out.println(line);
