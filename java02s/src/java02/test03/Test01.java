@@ -74,7 +74,7 @@ public class Test01 {
            - 명령어 개수를 잘못 참조하는 경우 등 예외 상황 처리
           */
         } catch (Exception e){
-          //e.printStackTrace(); // 예외 객체에 있는 예외 정보룰 다 출력.
+          //e.printStackTrace(); // 예외 객체에 있는 예외 정보를 다 출력.
           // 몽땅 다 일목요연하게 정리해서 보여쥼 
           System.out.println("명령어 처리 중 오류 발생. 다시 시도해 주세요.");
         }
@@ -121,15 +121,15 @@ public class Test01 {
     System.out.println("저장하였습니다.");
   }
   /* 
-   3) 자주 사용되는 코드는 메서드 블록으로 분리한다.
-    - 사용자에게서 명령어를 입력받는 부분
-    - 여러 클래스 메서드에서 공통으로 사용하는 객체는 클래스 변수로 만든다.
-   */
-  private static String[] promptCommand() { //** 
-    System.out.println("명령> "); // 명령 프롬프트 띄우기
+  3) 자주 사용되는 코드는 메서드 블록으로 분리한다.
+   - 사용자에게서 명령어를 입력받는 부분
+   - 여러 클래스 메서드에서 공통으로 사용하는 객체는 클래스 변수로 만든다.
+  */
+ private static String[] promptCommand() { //** 
+   System.out.println("명령> "); // 명령 프롬프트 띄우기
 
-    String[] token = scanner.nextLine().split(" ");
-    return token;
-    /*자주쓰는 부분 드래그 후 우클릭-> Refactor -> extract Method */
+   String[] token = scanner.nextLine().split(" ");
+   return token;
+   /*자주쓰는 부분 드래그 후 우클릭-> Refactor -> extract Method */
   }
 }

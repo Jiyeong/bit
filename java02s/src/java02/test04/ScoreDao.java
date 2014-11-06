@@ -1,7 +1,7 @@
-/* DAO(Data Access Object)
+/* 
+DAO(Data Access Object)
  - 데이터의 퍼시스턴스(Persistence) 담당
    => 데이터의 보관(등록,조회,변경,삭제) 
- * 
  */
 package java02.test04;
 
@@ -30,7 +30,6 @@ public class ScoreDao {
     Scanner dataScanner = null;
     try {
       dataScanner = new Scanner(new FileReader(filename));
-      
       while (true) {
         try { 
           list.add(new Score(dataScanner.nextLine()));
@@ -49,6 +48,7 @@ public class ScoreDao {
   public void save() throws Exception {
     BufferedWriter out = null;
     try {
+      
       out = new BufferedWriter(new FileWriter(filename));
       for (Score score : list) {
         out.write(score.getName() + "," +

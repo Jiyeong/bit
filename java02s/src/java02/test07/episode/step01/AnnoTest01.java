@@ -47,7 +47,7 @@ public class AnnoTest01 {
   //class객체를 얻는 또 다른 방법
   // JVM은 클래스를 로딩할 때,
   // 컴파일러는 클래스를 만들 때 "class"라는 이름의 static 변수를 자동으로 추가한다.
-  // 자바의 모든 클래스는 "class"라는 static 변수를가 있다다.
+  // 자바의 모든 클래스는 "class"라는 static 변수가 있다.
   // 이 변수에는 로딩된 클래스를 다루는 "Class" 개체가 들어있다.
   public static void main02(String[] args) {
     // 클래스 이름으로 저근 가능하다.

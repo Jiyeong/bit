@@ -34,7 +34,7 @@ public class Test12 {
     out2.writeInt(obj.math);
     out2.writeInt(obj.sum);
     out2.writeFloat(obj.average);
-    
+
     // 닫을 때 거꾸로 닫는다.
     out2.close();
     out.close();

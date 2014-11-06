@@ -13,8 +13,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 //@SuppressWarnings("serial") //경고 무시
 // 인스턴스 값들을 바이트 배열로 만들려면 Serialize를 허용해야 한다.
-// java.io.Serialzation 인터테이스를 구현하면된다. 
-// Serializable 인터테이스
+// java.io.Serialzation 인터페이스를 구현하면된다. 
+// Serializable 인터페이스
 // 1) 메서드가 없다. 
 // 2) 단지 바이트 배열로 출력할 수 있다는 표시용이다.
 class Score implements Serializable{

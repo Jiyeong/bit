@@ -9,7 +9,7 @@ package java02.test07.episode.step02;
     //language = {"korean", "english"},
     
     // 배열에 값을 하나만 넣을 때는 중괄호{}를 생략할 수 있다.
-    //language = {"korean"},
+    //language = {"korean"}
     language = "korean",
     
     age = 30

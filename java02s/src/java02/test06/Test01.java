@@ -32,7 +32,7 @@ public class Test01 {
 
     for (Object key : keySet){
       classname = (String)props.get(key); //클래스네임알아내기
-      //System.out.println(key + "=" + classname.trim());
+      //System.out.println(key + "=" + classname.tvmrim());
       clazz = Class.forName(classname.trim());
       command = (Command)clazz.newInstance();
       commandMap.put((String)key, command); //맵에넣기
@@ -92,8 +92,7 @@ public void destroy(){ // 자원해제
   
 }
 
-
-  private String[] promptCommand() {
+test  private String[] promptCommand() {
     System.out.print("명령>");
     String[] token = scanner.nextLine().split(" ");
     return token;
