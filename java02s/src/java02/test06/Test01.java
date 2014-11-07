@@ -92,7 +92,7 @@ public void destroy(){ // 자원해제
   
 }
 
-test  private String[] promptCommand() {
+private String[] promptCommand() {
     System.out.print("명령>");
     String[] token = scanner.nextLine().split(" ");
     return token;

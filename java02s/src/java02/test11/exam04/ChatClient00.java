@@ -15,7 +15,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class ChatClient  extends Frame { // 윈도우가 사용하여 만듬!(OS함수를 통해서)
+public class ChatClient00  extends Frame { // 윈도우가 사용하여 만듬!(OS함수를 통해서)
   TextField serverAddr = new TextField(20);
   TextField name = new TextField(10);
   Button connectBtn = new Button("연결");
@@ -23,7 +23,7 @@ public class ChatClient  extends Frame { // 윈도우가 사용하여 만듬!(OS
   TextField input = new TextField(30);
   Button sendBtn = new Button("보내기");
 
-  public ChatClient() {
+  public ChatClient00() {
     // 윈도우 준비
     Panel toolbar = new Panel(new FlowLayout(FlowLayout.LEFT));
     toolbar.add(new Label("이름 : "));
