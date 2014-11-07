@@ -1,201 +1,201 @@
--- ÁÖ¹®Á¤º¸
+-- ì£¼ë¬¸ì •ë³´
 DROP TABLE IF EXISTS ORDERS RESTRICT;
 
--- Á¦Ç°Á¤º¸
+-- ì œí’ˆì •ë³´
 DROP TABLE IF EXISTS PRODUCTS RESTRICT;
 
--- Á¦Ç°»çÁø
+-- ì œí’ˆì‚¬ì§„
 DROP TABLE IF EXISTS PROD_PHOTS RESTRICT;
 
--- Á¦Á¶»ç
+-- ì œì¡°ì‚¬
 DROP TABLE IF EXISTS MAKERS RESTRICT;
 
--- ÁÖ¹®ÀÚÁ¤º¸
+-- ì£¼ë¬¸ìžì •ë³´
 DROP TABLE IF EXISTS MEMBERS RESTRICT;
 
--- ÁÖ¼ÒÁ¤º¸
+-- ì£¼ì†Œì •ë³´
 DROP TABLE IF EXISTS ADDRS RESTRICT;
 
--- ÁÖ¹®Á¤º¸
+-- ì£¼ë¬¸ì •ë³´
 CREATE TABLE ORDERS (
-	ONO   INTEGER     NOT NULL COMMENT 'ÁÖ¹®¹øÈ£', -- ÁÖ¹®¹øÈ£
-	QTY   INTEGER     NOT NULL COMMENT 'ÁÖ¹®¼ö·®', -- ÁÖ¹®¼ö·®
-	ODATE DATE        NOT NULL COMMENT 'ÁÖ¹®ÀÏ', -- ÁÖ¹®ÀÏ
-	PNO   INTEGER     NOT NULL COMMENT 'Á¦Ç°¹øÈ£', -- Á¦Ç°¹øÈ£
-	UID   VARCHAR(20) NOT NULL COMMENT '¾ÆÀÌµð' -- ¾ÆÀÌµð
+  ONO   INTEGER     NOT NULL COMMENT 'ì£¼ë¬¸ë²ˆí˜¸', -- ì£¼ë¬¸ë²ˆí˜¸
+  QTY   INTEGER     NOT NULL COMMENT 'ì£¼ë¬¸ìˆ˜ëŸ‰', -- ì£¼ë¬¸ìˆ˜ëŸ‰
+  ODATE DATE        NOT NULL COMMENT 'ì£¼ë¬¸ì¼', -- ì£¼ë¬¸ì¼
+  PNO   INTEGER     NOT NULL COMMENT 'ì œí’ˆë²ˆí˜¸', -- ì œí’ˆë²ˆí˜¸
+  UID   VARCHAR(20) NOT NULL COMMENT 'ì•„ì´ë””' -- ì•„ì´ë””
 )
-COMMENT 'ÁÖ¹®Á¤º¸';
+COMMENT 'ì£¼ë¬¸ì •ë³´';
 
--- ÁÖ¹®Á¤º¸
+-- ì£¼ë¬¸ì •ë³´
 ALTER TABLE ORDERS
-	ADD CONSTRAINT PK_ORDERS -- ÁÖ¹®Á¤º¸ ±âº»Å°
-		PRIMARY KEY (
-			ONO -- ÁÖ¹®¹øÈ£
-		);
+  ADD CONSTRAINT PK_ORDERS -- ì£¼ë¬¸ì •ë³´ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      ONO -- ì£¼ë¬¸ë²ˆí˜¸
+    );
 
 ALTER TABLE ORDERS
-	MODIFY COLUMN ONO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ÁÖ¹®¹øÈ£';
+  MODIFY COLUMN ONO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ì£¼ë¬¸ë²ˆí˜¸';
 
--- Á¦Ç°Á¤º¸
+-- ì œí’ˆì •ë³´
 CREATE TABLE PRODUCTS (
-	PNO   INTEGER      NOT NULL COMMENT 'Á¦Ç°¹øÈ£', -- Á¦Ç°¹øÈ£
-	PNAME VARCHAR(255) NOT NULL COMMENT 'Á¦Ç°¸í', -- Á¦Ç°¸í
-	QTY   INTEGER      NOT NULL COMMENT 'ÀÜ¿©¼ö·®', -- ÀÜ¿©¼ö·®
-	MKNO  INTEGER      NULL     COMMENT 'Á¦Á¶»ç¹øÈ£' -- Á¦Á¶»ç¹øÈ£
+  PNO   INTEGER      NOT NULL COMMENT 'ì œí’ˆë²ˆí˜¸', -- ì œí’ˆë²ˆí˜¸
+  PNAME VARCHAR(255) NOT NULL COMMENT 'ì œí’ˆëª…', -- ì œí’ˆëª…
+  QTY   INTEGER      NOT NULL COMMENT 'ìž”ì—¬ìˆ˜ëŸ‰', -- ìž”ì—¬ìˆ˜ëŸ‰
+  MKNO  INTEGER      NULL     COMMENT 'ì œì¡°ì‚¬ë²ˆí˜¸' -- ì œì¡°ì‚¬ë²ˆí˜¸
 )
-COMMENT 'Á¦Ç°Á¤º¸';
+COMMENT 'ì œí’ˆì •ë³´';
 
--- Á¦Ç°Á¤º¸
+-- ì œí’ˆì •ë³´
 ALTER TABLE PRODUCTS
-	ADD CONSTRAINT PK_PRODUCTS -- Á¦Ç°Á¤º¸ ±âº»Å°
-		PRIMARY KEY (
-			PNO -- Á¦Ç°¹øÈ£
-		);
+  ADD CONSTRAINT PK_PRODUCTS -- ì œí’ˆì •ë³´ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      PNO -- ì œí’ˆë²ˆí˜¸
+    );
 
--- Á¦Ç°Á¤º¸ ÀÎµ¦½º
+-- ì œí’ˆì •ë³´ ì¸ë±ìŠ¤
 CREATE INDEX IX_PRODUCTS
-	ON PRODUCTS( -- Á¦Ç°Á¤º¸
-		PNAME ASC -- Á¦Ç°¸í
-	);
+  ON PRODUCTS( -- ì œí’ˆì •ë³´
+    PNAME ASC -- ì œí’ˆëª…
+  );
 
 ALTER TABLE PRODUCTS
-	MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Á¦Ç°¹øÈ£';
+  MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ì œí’ˆë²ˆí˜¸';
 
--- Á¦Ç°»çÁø
+-- ì œí’ˆì‚¬ì§„
 CREATE TABLE PROD_PHOTS (
-	PPNO INTEGER      NOT NULL COMMENT 'Á¦Ç°»çÁø¹øÈ£', -- Á¦Ç°»çÁø¹øÈ£
-	PNO  INTEGER      NULL     COMMENT 'Á¦Ç°¹øÈ£', -- Á¦Ç°¹øÈ£
-	URL  VARCHAR(255) NULL     COMMENT 'Á¦Ç°»çÁø°æ·Î' -- Á¦Ç°»çÁø°æ·Î
+  PPNO INTEGER      NOT NULL COMMENT 'ì œí’ˆì‚¬ì§„ë²ˆí˜¸', -- ì œí’ˆì‚¬ì§„ë²ˆí˜¸
+  PNO  INTEGER      NULL     COMMENT 'ì œí’ˆë²ˆí˜¸', -- ì œí’ˆë²ˆí˜¸
+  URL  VARCHAR(255) NULL     COMMENT 'ì œí’ˆì‚¬ì§„ê²½ë¡œ' -- ì œí’ˆì‚¬ì§„ê²½ë¡œ
 )
-COMMENT 'Á¦Ç°»çÁø';
+COMMENT 'ì œí’ˆì‚¬ì§„';
 
--- Á¦Ç°»çÁø
+-- ì œí’ˆì‚¬ì§„
 ALTER TABLE PROD_PHOTS
-	ADD CONSTRAINT PK_PROD_PHOTS -- Á¦Ç°»çÁø ±âº»Å°
-		PRIMARY KEY (
-			PPNO -- Á¦Ç°»çÁø¹øÈ£
-		);
+  ADD CONSTRAINT PK_PROD_PHOTS -- ì œí’ˆì‚¬ì§„ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      PPNO -- ì œí’ˆì‚¬ì§„ë²ˆí˜¸
+    );
 
 ALTER TABLE PROD_PHOTS
-	MODIFY COLUMN PPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Á¦Ç°»çÁø¹øÈ£';
+  MODIFY COLUMN PPNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ì œí’ˆì‚¬ì§„ë²ˆí˜¸';
 
--- Á¦Á¶»ç
+-- ì œì¡°ì‚¬
 CREATE TABLE MAKERS (
-	MKNO   INTEGER      NOT NULL COMMENT 'Á¦Á¶»ç¹øÈ£', -- Á¦Á¶»ç¹øÈ£
-	MKNAME VARCHAR(80)  NOT NULL COMMENT 'Á¦Á¶»ç', -- Á¦Á¶»ç
-	HOME   VARCHAR(255) NULL     COMMENT 'Á¦Á¶»çÈ¨ÆäÀÌÁö', -- Á¦Á¶»çÈ¨ÆäÀÌÁö
-	TEL    VARCHAR(30)  NULL     COMMENT 'Á¦Á¶»çÀüÈ­', -- Á¦Á¶»çÀüÈ­
-	FAX    VARCHAR(30)  NULL     COMMENT 'Á¦Á¶»çÆÑ½º' -- Á¦Á¶»çÆÑ½º
+  MKNO   INTEGER      NOT NULL COMMENT 'ì œì¡°ì‚¬ë²ˆí˜¸', -- ì œì¡°ì‚¬ë²ˆí˜¸
+  MKNAME VARCHAR(80)  NOT NULL COMMENT 'ì œì¡°ì‚¬', -- ì œì¡°ì‚¬
+  HOME   VARCHAR(255) NULL     COMMENT 'ì œì¡°ì‚¬í™ˆíŽ˜ì´ì§€', -- ì œì¡°ì‚¬í™ˆíŽ˜ì´ì§€
+  TEL    VARCHAR(30)  NULL     COMMENT 'ì œì¡°ì‚¬ì „í™”', -- ì œì¡°ì‚¬ì „í™”
+  FAX    VARCHAR(30)  NULL     COMMENT 'ì œì¡°ì‚¬íŒ©ìŠ¤' -- ì œì¡°ì‚¬íŒ©ìŠ¤
 )
-COMMENT 'Á¦Á¶»ç';
+COMMENT 'ì œì¡°ì‚¬';
 
--- Á¦Á¶»ç
+-- ì œì¡°ì‚¬
 ALTER TABLE MAKERS
-	ADD CONSTRAINT PK_MAKERS -- Á¦Á¶»ç ±âº»Å°
-		PRIMARY KEY (
-			MKNO -- Á¦Á¶»ç¹øÈ£
-		);
+  ADD CONSTRAINT PK_MAKERS -- ì œì¡°ì‚¬ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      MKNO -- ì œì¡°ì‚¬ë²ˆí˜¸
+    );
 
 ALTER TABLE MAKERS
-	MODIFY COLUMN MKNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Á¦Á¶»ç¹øÈ£';
+  MODIFY COLUMN MKNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ì œì¡°ì‚¬ë²ˆí˜¸';
 
--- ÁÖ¹®ÀÚÁ¤º¸
+-- ì£¼ë¬¸ìžì •ë³´
 CREATE TABLE MEMBERS (
-	UID      VARCHAR(20)  NOT NULL COMMENT '¾ÆÀÌµð', -- ¾ÆÀÌµð
-	PWD      VARCHAR(20)  NOT NULL COMMENT '¾ÏÈ£', -- ¾ÏÈ£
-	EMAIL    VARCHAR(40)  NOT NULL COMMENT 'ÀÌ¸ÞÀÏ', -- ÀÌ¸ÞÀÏ
-	UNAME    VARCHAR(80)  NOT NULL COMMENT 'ÁÖ¹®ÀÚ¸í', -- ÁÖ¹®ÀÚ¸í
-	TEL      VARCHAR(30)  NOT NULL COMMENT 'ÀüÈ­', -- ÀüÈ­
-	FAX      VARCHAR(30)  NULL     COMMENT 'ÆÑ½º', -- ÆÑ½º
-	DET_ADDR VARCHAR(255) NULL     COMMENT '»ó¼¼ÁÖ¼Ò', -- »ó¼¼ÁÖ¼Ò
-	PHOT     VARCHAR(255) NULL     COMMENT 'ÁÖ¹®ÀÚ»çÁø', -- ÁÖ¹®ÀÚ»çÁø
-	ANO      INTEGER      NULL     COMMENT 'ÁÖ¼Ò¹øÈ£' -- ÁÖ¼Ò¹øÈ£
+  UID      VARCHAR(20)  NOT NULL COMMENT 'ì•„ì´ë””', -- ì•„ì´ë””
+  PWD      VARCHAR(20)  NOT NULL COMMENT 'ì•”í˜¸', -- ì•”í˜¸
+  EMAIL    VARCHAR(40)  NOT NULL COMMENT 'ì´ë©”ì¼', -- ì´ë©”ì¼
+  UNAME    VARCHAR(80)  NOT NULL COMMENT 'ì£¼ë¬¸ìžëª…', -- ì£¼ë¬¸ìžëª…
+  TEL      VARCHAR(30)  NOT NULL COMMENT 'ì „í™”', -- ì „í™”
+  FAX      VARCHAR(30)  NULL     COMMENT 'íŒ©ìŠ¤', -- íŒ©ìŠ¤
+  DET_ADDR VARCHAR(255) NULL     COMMENT 'ìƒì„¸ì£¼ì†Œ', -- ìƒì„¸ì£¼ì†Œ
+  PHOT     VARCHAR(255) NULL     COMMENT 'ì£¼ë¬¸ìžì‚¬ì§„', -- ì£¼ë¬¸ìžì‚¬ì§„
+  ANO      INTEGER      NULL     COMMENT 'ì£¼ì†Œë²ˆí˜¸' -- ì£¼ì†Œë²ˆí˜¸
 )
-COMMENT 'ÁÖ¹®ÀÚÁ¤º¸';
+COMMENT 'ì£¼ë¬¸ìžì •ë³´';
 
--- ÁÖ¹®ÀÚÁ¤º¸
+-- ì£¼ë¬¸ìžì •ë³´
 ALTER TABLE MEMBERS
-	ADD CONSTRAINT PK_MEMBERS -- ÁÖ¹®ÀÚÁ¤º¸ ±âº»Å°
-		PRIMARY KEY (
-			UID -- ¾ÆÀÌµð
-		);
+  ADD CONSTRAINT PK_MEMBERS -- ì£¼ë¬¸ìžì •ë³´ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      UID -- ì•„ì´ë””
+    );
 
--- ÁÖ¹®ÀÚÁ¤º¸ À¯´ÏÅ© ÀÎµ¦½º
+-- ì£¼ë¬¸ìžì •ë³´ ìœ ë‹ˆí¬ ì¸ë±ìŠ¤
 CREATE UNIQUE INDEX UIX_MEMBERS
-	ON MEMBERS ( -- ÁÖ¹®ÀÚÁ¤º¸
-		EMAIL ASC -- ÀÌ¸ÞÀÏ
-	);
+  ON MEMBERS ( -- ì£¼ë¬¸ìžì •ë³´
+    EMAIL ASC -- ì´ë©”ì¼
+  );
 
--- ÁÖ¹®ÀÚÁ¤º¸ ÀÎµ¦½º
+-- ì£¼ë¬¸ìžì •ë³´ ì¸ë±ìŠ¤
 CREATE INDEX IX_MEMBERS
-	ON MEMBERS( -- ÁÖ¹®ÀÚÁ¤º¸
-		UNAME ASC -- ÁÖ¹®ÀÚ¸í
-	);
+  ON MEMBERS( -- ì£¼ë¬¸ìžì •ë³´
+    UNAME ASC -- ì£¼ë¬¸ìžëª…
+  );
 
--- ÁÖ¼ÒÁ¤º¸
+-- ì£¼ì†Œì •ë³´
 CREATE TABLE ADDRS (
-	ANO      INTEGER      NOT NULL COMMENT 'ÁÖ¼Ò¹øÈ£', -- ÁÖ¼Ò¹øÈ£
-	POSTNO   VARCHAR(10)  NOT NULL COMMENT '¿ìÆí¹øÈ£', -- ¿ìÆí¹øÈ£
-	BAS_ADDR VARCHAR(255) NOT NULL COMMENT '±âº»ÁÖ¼Ò' -- ±âº»ÁÖ¼Ò
+  ANO      INTEGER      NOT NULL COMMENT 'ì£¼ì†Œë²ˆí˜¸', -- ì£¼ì†Œë²ˆí˜¸
+  POSTNO   VARCHAR(10)  NOT NULL COMMENT 'ìš°íŽ¸ë²ˆí˜¸', -- ìš°íŽ¸ë²ˆí˜¸
+  BAS_ADDR VARCHAR(255) NOT NULL COMMENT 'ê¸°ë³¸ì£¼ì†Œ' -- ê¸°ë³¸ì£¼ì†Œ
 )
-COMMENT 'ÁÖ¼ÒÁ¤º¸';
+COMMENT 'ì£¼ì†Œì •ë³´';
 
--- ÁÖ¼ÒÁ¤º¸
+-- ì£¼ì†Œì •ë³´
 ALTER TABLE ADDRS
-	ADD CONSTRAINT PK_ADDRS -- ÁÖ¼ÒÁ¤º¸ ±âº»Å°
-		PRIMARY KEY (
-			ANO -- ÁÖ¼Ò¹øÈ£
-		);
+  ADD CONSTRAINT PK_ADDRS -- ì£¼ì†Œì •ë³´ ê¸°ë³¸í‚¤
+    PRIMARY KEY (
+      ANO -- ì£¼ì†Œë²ˆí˜¸
+    );
 
 ALTER TABLE ADDRS
-	MODIFY COLUMN ANO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ÁÖ¼Ò¹øÈ£';
+  MODIFY COLUMN ANO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ì£¼ì†Œë²ˆí˜¸';
 
--- ÁÖ¹®Á¤º¸
+-- ì£¼ë¬¸ì •ë³´
 ALTER TABLE ORDERS
-	ADD CONSTRAINT FK_PRODUCTS_TO_ORDERS -- Á¦Ç°Á¤º¸ -> ÁÖ¹®Á¤º¸
-		FOREIGN KEY (
-			PNO -- Á¦Ç°¹øÈ£
-		)
-		REFERENCES PRODUCTS ( -- Á¦Ç°Á¤º¸
-			PNO -- Á¦Ç°¹øÈ£
-		);
+  ADD CONSTRAINT FK_PRODUCTS_TO_ORDERS -- ì œí’ˆì •ë³´ -> ì£¼ë¬¸ì •ë³´
+    FOREIGN KEY (
+      PNO -- ì œí’ˆë²ˆí˜¸
+    )
+    REFERENCES PRODUCTS ( -- ì œí’ˆì •ë³´
+      PNO -- ì œí’ˆë²ˆí˜¸
+    );
 
--- ÁÖ¹®Á¤º¸
+-- ì£¼ë¬¸ì •ë³´
 ALTER TABLE ORDERS
-	ADD CONSTRAINT FK_MEMBERS_TO_ORDERS -- ÁÖ¹®ÀÚÁ¤º¸ -> ÁÖ¹®Á¤º¸
-		FOREIGN KEY (
-			UID -- ¾ÆÀÌµð
-		)
-		REFERENCES MEMBERS ( -- ÁÖ¹®ÀÚÁ¤º¸
-			UID -- ¾ÆÀÌµð
-		);
+  ADD CONSTRAINT FK_MEMBERS_TO_ORDERS -- ì£¼ë¬¸ìžì •ë³´ -> ì£¼ë¬¸ì •ë³´
+    FOREIGN KEY (
+      UID -- ì•„ì´ë””
+    )
+    REFERENCES MEMBERS ( -- ì£¼ë¬¸ìžì •ë³´
+      UID -- ì•„ì´ë””
+    );
 
--- Á¦Ç°Á¤º¸
+-- ì œí’ˆì •ë³´
 ALTER TABLE PRODUCTS
-	ADD CONSTRAINT FK_MAKERS_TO_PRODUCTS -- Á¦Á¶»ç -> Á¦Ç°Á¤º¸
-		FOREIGN KEY (
-			MKNO -- Á¦Á¶»ç¹øÈ£
-		)
-		REFERENCES MAKERS ( -- Á¦Á¶»ç
-			MKNO -- Á¦Á¶»ç¹øÈ£
-		);
+  ADD CONSTRAINT FK_MAKERS_TO_PRODUCTS -- ì œì¡°ì‚¬ -> ì œí’ˆì •ë³´
+    FOREIGN KEY (
+      MKNO -- ì œì¡°ì‚¬ë²ˆí˜¸
+    )
+    REFERENCES MAKERS ( -- ì œì¡°ì‚¬
+      MKNO -- ì œì¡°ì‚¬ë²ˆí˜¸
+    );
 
--- Á¦Ç°»çÁø
+-- ì œí’ˆì‚¬ì§„
 ALTER TABLE PROD_PHOTS
-	ADD CONSTRAINT FK_PRODUCTS_TO_PROD_PHOTS -- Á¦Ç°Á¤º¸ -> Á¦Ç°»çÁø
-		FOREIGN KEY (
-			PNO -- Á¦Ç°¹øÈ£
-		)
-		REFERENCES PRODUCTS ( -- Á¦Ç°Á¤º¸
-			PNO -- Á¦Ç°¹øÈ£
-		);
+  ADD CONSTRAINT FK_PRODUCTS_TO_PROD_PHOTS -- ì œí’ˆì •ë³´ -> ì œí’ˆì‚¬ì§„
+    FOREIGN KEY (
+      PNO -- ì œí’ˆë²ˆí˜¸
+    )
+    REFERENCES PRODUCTS ( -- ì œí’ˆì •ë³´
+      PNO -- ì œí’ˆë²ˆí˜¸
+    );
 
--- ÁÖ¹®ÀÚÁ¤º¸
+-- ì£¼ë¬¸ìžì •ë³´
 ALTER TABLE MEMBERS
-	ADD CONSTRAINT FK_ADDRS_TO_MEMBERS -- ÁÖ¼ÒÁ¤º¸ -> ÁÖ¹®ÀÚÁ¤º¸
-		FOREIGN KEY (
-			ANO -- ÁÖ¼Ò¹øÈ£
-		)
-		REFERENCES ADDRS ( -- ÁÖ¼ÒÁ¤º¸
-			ANO -- ÁÖ¼Ò¹øÈ£
-		);
+  ADD CONSTRAINT FK_ADDRS_TO_MEMBERS -- ì£¼ì†Œì •ë³´ -> ì£¼ë¬¸ìžì •ë³´
+    FOREIGN KEY (
+      ANO -- ì£¼ì†Œë²ˆí˜¸
+    )
+    REFERENCES ADDRS ( -- ì£¼ì†Œì •ë³´
+      ANO -- ì£¼ì†Œë²ˆí˜¸
+    );
