@@ -25,7 +25,7 @@ public class AnnoTest01 {
     // Class clazz = Class.fornamee("java02.test07.epioed.MyObject");
     // 실무에선 이거 많이 씀 
     
-    // 클래스 로딩 방법 3 : 클래스의 스태틱 변수를 통해 어얻기
+    // 클래스 로딩 방법 3 : 클래스의 스태틱 변수를 통해 얻기
     Class clazz = MyObject.class;
     /// 고정시켜버림
     
