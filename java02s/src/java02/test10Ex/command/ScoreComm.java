@@ -5,16 +5,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 import java02.test10.Score;
-import java02.test10.ScoreDao;
+import java02.test10.ProductDao;
 import java02.test10.annotation.Component;
 import java02.test10.annotation.Command;
 
 @Component
 public class ScoreComm {
-  ScoreDao scoreDao;
+  ProductDao scoreDao;
   Scanner scanner;
 
-  public void setScoreDao(ScoreDao scoreDao) {
+  public void setScoreDao(ProductDao scoreDao) {
     this.scoreDao = scoreDao;
   }
   public void setScanner(Scanner scanner) {

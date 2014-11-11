@@ -1,4 +1,4 @@
-package java02.test14n10;
+package java02.test14.test14n10;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,7 +38,6 @@ public class Test14n10 {
           case "list":
             dolist();
             break;
-
           case "delete":
             doDelete(Integer.parseInt(token[1]));
             break;
@@ -68,8 +67,8 @@ public class Test14n10 {
   }
 
   private static void dolist() throws SQLException {
-    rs = stmt.executeQuery("select T1.PNO, PNAME, QTY, T2.MKNAME "
-        + " from PRODUCTS T1 JOIN MAKERS T2 on T1.mkno = T2.mkno");
+    rs = stmt.executeQuery("SELECT T1.PNO, PNAME, QTY, T2.MKNAME "
+        + " FROM PRODUCTS T1 JOIN MAKERS T2 on T1.MKNO = T2.MKNO");
     //System.out.println("서버에 질의 완료. ResultSet 준비 완료.");
 
     System.out.printf("번호 제품명  \t\t      수량 제조사명\n");
@@ -103,23 +102,28 @@ public class Test14n10 {
   private static void doUpdate(int index) throws SQLException {
     String pname = null;
     int qty= 0, mkno= 0;
-    rs = stmt.executeQuery("select pname, qty, mkno from PRODUCTS where pno =" +index);
+    rs = stmt.executeQuery("SELECT PNAME, QTY, MKNO FROM PRODUCTS WHERE PNO =" 
+          + index);
     while(rs.next()){
       System.out.print("제품명("+rs.getString("PNAME") +")?");
-      pname= scanner.nextLine();
+      pname = scanner.nextLine();
+        
       System.out.print("수량("+rs.getInt("QTY") +")?");
       qty = Integer.parseInt(scanner.nextLine());
+      
       System.out.println("제조사("+rs.getInt("MKNO")+ ")?" );
       mkno = Integer.parseInt(scanner.nextLine());
+
     }
     stmt.executeUpdate("UPDATE PRODUCTS SET" +
         " PNAME = '" + pname+ " ', QTY = " + qty +
         " ,MKNO = " + mkno + " WHERE PNO = " + index);
+    System.out.println("변경되었습니다.");
   }
 
   private static void doDelete(int index) throws SQLException {
 
-    rs = stmt.executeQuery("select Pname from PRODUCTS where pno =" +index);
+    rs = stmt.executeQuery("SELECT PNAME FROM PRODUCTS WHERE PNO =" +index);
     if(rs.next()){
       System.out.println(rs.getString("pname") + "를 삭제 하시겠습니까?"
           + "(y/n)");
@@ -131,7 +135,6 @@ public class Test14n10 {
     }
 
   }
-
 
   private static String[] promptCommand() {
     System.out.print("명령>");

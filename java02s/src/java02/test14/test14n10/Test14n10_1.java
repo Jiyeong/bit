@@ -1,4 +1,4 @@
-package java02.test14n10;
+package java02.test14.test14n10;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

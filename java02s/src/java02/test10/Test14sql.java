@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Set;
 
-import java02.test10.ScoreDao;
+import java02.test10.ProductDao;
 import java02.test10.annotation.Command;
 import java02.test10.annotation.Component;
 
@@ -21,12 +21,12 @@ public class Test14sql {
   }
 
   Scanner scanner; 
-  ScoreDao scoreDao;
+  ProductDao scoreDao;
   HashMap<String,CommandInfo> commandMap; // Object -> CommandInfo
   // Command -> Object
 
   public void init() throws Exception {
-    scoreDao = new ScoreDao();
+    scoreDao = new ProductDao();
     try {
       scoreDao.load();
     } catch (Exception e) {
@@ -77,7 +77,7 @@ public class Test14sql {
       /*==========*/
 
       try{
-        method = clazz.getMethod("setScoreDao", ScoreDao.class); 
+        method = clazz.getMethod("setScoreDao", ProductDao.class); 
         //System.out.println(clazz.getName() + "." + method.getName());
         method.invoke(command,scoreDao); // setScoreDao를 호출함.이해해!
       } catch (Exception e){
