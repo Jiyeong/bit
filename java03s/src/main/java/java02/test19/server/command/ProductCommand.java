@@ -8,20 +8,16 @@ import java02.test19.server.ProductDao;
 import java02.test19.server.annotation.Command;
 import java02.test19.server.annotation.Component;
 
-@Component
+@Component("product")
 public class ProductCommand {
   ProductDao productDao;
-  Scanner scanner;
 
   public void setProductDao(ProductDao productDao) {
     this.productDao = productDao;
   }
-  public void setScanner(Scanner scanner) {
-    this.scanner = scanner;
-  }
   
 
-  @Command("add")
+  @Command("product/add")
   public void add(Map<String, Object> params) {
     PrintStream out = (PrintStream)params.get("out");
     
@@ -41,7 +37,7 @@ public class ProductCommand {
     }
   }
 
-  @Command("delete")
+  @Command("product/delete")
   public void delete(Map<String, Object> params) {
     
     PrintStream out = (PrintStream)params.get("out");
@@ -61,7 +57,7 @@ public class ProductCommand {
 
   }
 
-  @Command("list")
+  @Command("product/list")
   public void list(Map<String, Object> params) {
     
       int pageNo = 0;
@@ -89,7 +85,7 @@ public class ProductCommand {
       
   }
 
-  @Command("update")
+  @Command("product/update")
   public void update(Map<String, Object> params) {
     PrintStream out = (PrintStream)params.get("out");
     
@@ -112,7 +108,7 @@ public class ProductCommand {
 
   } 
 
-  @Command("view")
+  @Command("product/view")
   public void view(Map<String, Object> params) throws Exception {
     int no = Integer.parseInt((String)params.get("no"));
 

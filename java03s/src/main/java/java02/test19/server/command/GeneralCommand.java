@@ -6,7 +6,7 @@ import java02.test19.server.ProductDao;
 import java02.test19.server.annotation.Command;
 import java02.test19.server.annotation.Component;
 
-@Component
+@Component("common")
 public class GeneralCommand {
   ProductDao productDao;
   
