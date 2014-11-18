@@ -3,7 +3,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 
-compileJava 
+compileJava {
   // 소스의 자바 버전 제한하기
   // => 지정된 버전의 문법이 아닌 경우 오류 출력한다.
   sourceCompatibility = 1.8
