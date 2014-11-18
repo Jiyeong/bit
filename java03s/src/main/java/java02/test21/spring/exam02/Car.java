@@ -4,12 +4,11 @@ public class Car {
   String model;
   int cc;
   
-  public Car(){}
-
+  public Car() {}
+  
   public Car(String model) {
     this.model = model;
   }
-  
   
   public String getModel() {
     return model;
@@ -23,7 +22,6 @@ public class Car {
   public void setCc(int cc) {
     this.cc = cc;
   }
-  
   
   
 }
