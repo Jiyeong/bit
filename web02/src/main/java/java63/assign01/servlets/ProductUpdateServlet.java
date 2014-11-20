@@ -47,7 +47,7 @@ String resource = "java63/assign01/dao/mybatis-config.xml";
       product.setMakerNo(Integer.parseInt((String)request.getParameter("mkno")));
       
       productDao.update(product);
-      out.println("변경하였습니다.");
+      out.println(product.getNo() + "번째 내용을 변경하였습니다.");
       out.println();
       
     } catch (Exception e) {

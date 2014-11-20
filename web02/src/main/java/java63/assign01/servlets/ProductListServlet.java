@@ -60,7 +60,8 @@ public class ProductListServlet extends GenericServlet {
     out.println("<html>");
     out.println("<body>");
     
-    out.println("<h3>pageNo = " + pageNo + ", pageSize = " + pageSize + "</h3>");
+    out.println("<h1> List </h1>");
+    out.println("<h4>pageNo = " + pageNo + ", pageSize = " + pageSize + "</h4><br>");
     for (Product product : productDao.selectList(pageNo, pageSize)) {
     out.println("<h3>" + product.getNo() + " " 
                        + product.getName() + " " 

@@ -49,7 +49,7 @@ int no = Integer.parseInt((String)request.getParameter("no"));
     }
     
     productDao.delete(no);
-    out.println("삭제하였습니다.");
+    out.println(no + "번의 정보를 삭제하였습니다.");
     out.println();
   }
 
