@@ -1,10 +1,15 @@
 package java63.servlets.test04;
 
+import java.io.InputStream;
+import java63.servlets.test04.dao.ProductDao;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /* 
 공통으로 사용하는 자원은 보통 ServletContext에 보관한다.
@@ -18,17 +23,24 @@ PageContext => JSP에서 사용됨.
 */
 
 //@WebListener
-public class ContextLoaderListener implements ServletContextListener {
+public class ContextLoaderListener01 implements ServletContextListener {
 
-  static ApplicationContext appCtx;
-  
   @Override
   public void contextInitialized(ServletContextEvent sce) {
     try {
+      ServletContext ctx = sce.getServletContext();
+      InputStream inputStream = Resources.getResourceAsStream(
+          ctx.getInitParameter("mybatisConfig"));
 
-      appCtx = new ClassPathXmlApplicationContext(
-          new String[]{"java63/servlets/test04/application-context.xml"});
+      SqlSessionFactory sqlSessionFactory =
+          new SqlSessionFactoryBuilder().build(inputStream); 
 
+      ProductDao productDao = new ProductDao();
+      productDao.setSqlSessionFactory(sqlSessionFactory);
+
+      // ServletContext 보관소에 객체 저장!
+      ctx.setAttribute("productDao", productDao);
+      
     } catch (Exception e) {
       e.printStackTrace();
     }
