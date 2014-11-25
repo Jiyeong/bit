@@ -11,11 +11,11 @@
 </head>
 <body>
 <div class='container'>
-<h1>제품 정보(ver 1.1)</h1>
-<%-- <jsp:useBean 
+<h1>제품 정보(ver 1.0)</h1>
+<jsp:useBean 
   scope="request"
   type="java63.servlets.test05.domain.Product"
-  id="product"/> --%>
+  id="product"/>
 <% //이거 날리기 위해 useBean사용
 //Product product = (Product)request.getAttribute("product");
 %>
@@ -24,29 +24,28 @@
   <label for='no' class='col-sm-2 control-label'>번호</label>
   <div class='col-sm-10'>
     <input type='text' class='form-control' readonly 
-        <%-- id='no' name='no' value='<%=product.getNo()%>'> --%>
-        id='no' name='no' value='${product.no}'>
+        id='no' name='no' value='<%=product.getNo()%>'>
   </div>
 </div>
 <div class='form-group'>
   <label for='name' class='col-sm-2 control-label'>제품</label>
   <div class='col-sm-10'>
     <input type='text' class='form-control' 
-        id='name' name='name' value='${product.name}'>
+        id='name' name='name' value='<%=product.getName()%>'>
   </div>
 </div>
 <div class='form-group'>
   <label for='qty' class='col-sm-2 control-label'>수량</label>
   <div class='col-sm-10'>
     <input type='text' class='form-control' 
-        id='qty' name='qty' value='${product.quantity}'>
+        id='qty' name='qty' value='<%=product.getQuantity()%>'>
   </div>
 </div>
 <div class='form-group'>
   <label for='mkno' class='col-sm-2 control-label'>제조사</label>
   <div class='col-sm-10'>
    <input type='text' class='form-control' 
-        id='mkno' name='mkno' value='${product.makerNo}'>
+        id='mkno' name='mkno' value='<%=product.getMakerNo()%>'>
   </div>
 </div>
 <div class='form-group'>
@@ -65,7 +64,7 @@
   });
   $('#btnDelete').click(function(){
     if (window.confirm('삭제하시겠습니까?')) {
-      location.href = 'delete?no=${product.no}'
+      location.href = 'delete?no=<%=product.getNo()%>'
     }
   });
   $('#btnUpdate').click(function(){

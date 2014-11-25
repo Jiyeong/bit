@@ -11,7 +11,7 @@
 <body>
 <h1>Directive Element</h1>
 <p>서블릿 클래스에 특정 자바 코드를 넣는다.
-옵션에 따라 다르다.</p>
+   옵션에 따라 다르다.</p>
 
 <h2>page 지시어</h2>
 <p>JSP 출력과 관련된 설정을 처리, 서블릿 기본 설정 처리<br>
@@ -46,7 +46,7 @@ forward/include의 동작과는 다르다. 절대 실행하지 않는다.
 <%
 ArrayList<String> nameList = new ArrayList<>();
 nameList.add("홍길동");
-nameList.add("임꺾정");
+nameList.add("임꺽정");
 nameList.add("윤봉길");
 nameList.add("안중근");
 pageContext.setAttribute("nameList", nameList);

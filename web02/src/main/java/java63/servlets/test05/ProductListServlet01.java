@@ -5,24 +5,24 @@ import java.util.List;
 import java63.servlets.test05.dao.ProductDao;
 import java63.servlets.test05.domain.Product;
 
+import javax.servlet.GenericServlet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-@WebServlet ("/test05/product/list")
-public class ProductListServlet extends HttpServlet {
+//@WebServlet ("/test05/product/list")
+public class ProductListServlet01 extends GenericServlet {
   private static final long serialVersionUID = 1L;
 
   static final int PAGE_DEFAULT_SIZE = 3;
 
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response)
+  public void service(ServletRequest request, ServletResponse response)
       throws ServletException, IOException {
     
     System.out.println("service() 실행 시작");
@@ -30,7 +30,6 @@ public class ProductListServlet extends HttpServlet {
     int pageNo = 0;
     int pageSize = 0;
 
-    try{
     if(request.getParameter("pageNo") != null) {
       pageNo = Integer.parseInt(request.getParameter("pageNo"));
       pageSize = PAGE_DEFAULT_SIZE;
@@ -56,12 +55,7 @@ public class ProductListServlet extends HttpServlet {
     // 결과를 출력하기 위해 JSP에게 위임한다.
     RequestDispatcher rd = request.getRequestDispatcher("/test05/product/ProductList.jsp");
     rd.include(request, response);
-    }catch (Exception e) {
-      RequestDispatcher rd = 
-          request.getRequestDispatcher("/common/error");
-      request.setAttribute("error", e);
-      rd.forward(request, response);
-    }
+    
 
   }
 
