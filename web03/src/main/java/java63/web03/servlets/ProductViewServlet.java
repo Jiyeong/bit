@@ -35,9 +35,14 @@ public class ProductViewServlet extends HttpServlet {
     ProductDao productDao = (ProductDao)appCtx.getBean("productDao");
     Product product = productDao.selectOne(no);
     request.setAttribute("product", product);
+    request.setAttribute("photos", 
+        productDao.selectPhoto(product.getNo()));
+    // 사진을 가져와서 포토스라는 이름으로 저장하라.
     
     MakerDao makerDao = (MakerDao)appCtx.getBean("makerDao");
     request.setAttribute("makers", makerDao.selectNameList());
+    
+    
     
     response.setContentType("text/html;charset=UTF-8");
 
