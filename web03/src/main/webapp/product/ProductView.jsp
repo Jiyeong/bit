@@ -36,13 +36,13 @@
   <label for='qty' class='col-sm-2 control-label'>수량</label>
   <div class='col-sm-10'>
     <input type='text' class='form-control' 
-        id='qty' name='qty' value='${product.quantity}'>
+        id='qty' name='quantity' value='${product.quantity}'>
   </div>
 </div>
 <div class='form-group'>
   <label for='mkno' class='col-sm-2 control-label'>제조사</label>
   <div class='col-sm-10'>
-   <select id='mkno' name='mkno' class='form-control'>
+   <select id='mkno' name='makerNo' class='form-control'>
       <option value="0">제조사를 선택하세요</option>
       <c:forEach items="${makers}" var="maker">
         <option value="${maker.no}">${maker.name}</option>
@@ -78,7 +78,8 @@
   });
 
   $('#btnCancel').click(function(){
-    history.back();
+    location.href = 'list.do';
+	  //history.back();
   });
   $('#btnDelete').click(function(){
     if (window.confirm('삭제하시겠습니까?')) {
