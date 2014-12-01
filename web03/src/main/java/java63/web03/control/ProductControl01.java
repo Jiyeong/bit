@@ -1,7 +1,10 @@
 package java63.web03.control;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+
 import java63.web03.dao.MakerDao;
 import java63.web03.dao.ProductDao;
 import java63.web03.domain.Product;
@@ -10,18 +13,21 @@ import javax.servlet.ServletContext;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller // Spring MVC의 컴포넌트(page controller)임을 지정할 때 사용
-@RequestMapping ("/product")
-public class ProductControl {
+//@RequestMapping ("/product")
+public class ProductControl01 {
 
-  static Logger log = Logger.getLogger(ProductControl.class);
+  static Logger log = Logger.getLogger(ProductControl01.class);
   static final int PAGE_DEFAULT_SIZE = 3;
 
   @Autowired MakerDao makerDao;
@@ -32,7 +38,7 @@ public class ProductControl {
   public ModelAndView form() throws Exception {
     ModelAndView mv = new ModelAndView();
     mv.addObject("makers", makerDao.selectNameList());
-    mv.setViewName("product/ProductForm");
+    mv.setViewName("/product/ProductForm.jsp");
     return mv;
   }
 
@@ -78,7 +84,7 @@ public class ProductControl {
 
     model.addAttribute("products", productDao.selectList(paramMap));
 
-    return"product/ProductList";
+    return"/product/ProductList.jsp";
 
   }
 
@@ -89,7 +95,7 @@ public class ProductControl {
     return "redirect:list.do";
   }
 
-  @RequestMapping ("/view")
+  //@RequestMapping ("/view")
   public String view(int no, Model model) throws Exception {
     Product product = productDao.selectOne(no);
     model.addAttribute("product", product);
@@ -97,9 +103,9 @@ public class ProductControl {
         productDao.selectPhoto(product.getNo()));
 
     model.addAttribute("makers", makerDao.selectNameList());
-    return "product/ProductView";
+    return "/product/ProductView.jsp";
   }
-  /*
+  
   // @InitBinder
   // => 요청 파라미터 값을 도메인 객체의 프로퍼티 값으로 변환해주는 
   //    변환기 등록
@@ -122,7 +128,15 @@ public class ProductControl {
           );
   }
   
-  */
+  public static void main(String[] args) throws Exception {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    
+    // 기본은 true => 날짜가 초과되면 자동으로 계산한다. 예외 안 띄운다.
+    // false로 설정 => 문자열을 엄격히 검사한다. 형식 맞지 않으면 예외 발생!
+    //dateFormat.setLenient(false);
+    System.out.println(dateFormat.parse("2014-12-40"));
+  }
+  
 }
 
 

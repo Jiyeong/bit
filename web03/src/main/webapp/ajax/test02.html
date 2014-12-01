@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>AJAX 비동기 요청</h1>
+
+	<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+
+/*
+비동기 요청
+  1) open()의 세 번째 파라미터 값을 true로 설정한다.
+  2) 서버로부터 응답을 받았을 때 호출될 리스너를 등록한다.
+
+*/
+xhr.onreadystatechange = function() {
+	  // xhr 객체의 상태가 바뀔 때마다 호출된다.
+	  // 상태 1 => open() 호출 후
+	  // 상태 2 => send() 호출 후
+	  // 상태 3 => 서버로부터 데이터를 받는 중
+	  // 상태 4 => 서버로부터 데이터 수신을 완료
+	  if (xhr.readyState == 4 { // 상태 수로 체크.
+		  if (xhr.status == 200)){
+		  console.log("----------------");
+		  console.log(xhr.responseText);
+		  console.log("----------------");
+	  } else {
+		  alert('서버 요청 오류!');
+		  console.log(xhr.responseText);
+	  }
+  }
+};
+xhr.open("GET", "ajax01.jsp", true);
+xhr.send();
+//console.log(xhr.responseText);
+
+</script>
+</body>
+</html>
